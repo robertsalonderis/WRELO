@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Styles/style-b.css" />
+    <link rel="stylesheet" href="Styles/style-m.css" />
+
+    <style></style>
+    <title>Members Workspace</title>
+  </head>
+  <body>
+    <header class="trello-header">
+      <div class="left-header">
+        <div class="logo">
+          <a href="index.php">
+            <img
+              src="images/Screenshot 2023-09-18 155134.png"
+              alt="Trello Logo"
+            />
+          </a>
+        </div>
+        <button id="workspace-button" class="header-button">Workspace ˅</button>
+        <button id="recent-button" class="header-button">Recent ˅</button>
+        <button id="templates-button" class="header-button">Templates ˅</button>
+        <button id="starred-button" class="header-button">Starred ˅</button>
+        <button id="create-button" class="header-button">Create</button>
+      </div>
+
+      <div class="right-header">
+        <!-- Remove the Create button from here -->
+      </div>
+      <div class="right-icons">
+        <a href="Login/login.html" class="login-button">Log In</a>
+        <form>
+          <button type="submit">Search</button>
+          <input type="search" placeholder="Search..." />
+        </form>
+        <button class="notification-button"><i class="fa fa-bell"></i></button>
+        <button class="account-button">
+          <i class="fa fa-user-circle-o"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="page">
+      <aside class="side-panel">
+        <button class="close-button">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <a href="navigation/boards.html" class="section-link">
+          <section class="section">
+            <i class="fa fa-tasks"></i>
+            <p>Boards</p>
+            <!-- List of boards goes here -->
+          </section>
+        </a>
+
+        <a href="navigation/members.html" class="section-link">
+          <section class="section">
+            <i class="fa fa-user-plus"></i>
+            <p>Members</p>
+            <!-- List of members goes here -->
+          </section>
+        </a>
+        <a href="navigation/workspace.html" class="section-link">
+          <section class="section">
+            <i class="fa fa-cog"></i>
+            <p>Workspace Settings</p>
+          </section>
+        </a>
+
+        <div>
+          <div class="h1-Wv">
+            <p><b>Workspace views</b></p>
+          </div>
+          <a href="navigation/table.html" class="section-link">
+            <section class="section section-buttons">
+              <button class="table-button">
+                <i class="fa fa-th-list style=" styl="font-size: 16px"></i>
+                <p>Table</p>
+              </button>
+            </section>
+          </a>
+          <a href="navigation/calendar.html" class="section-link">
+            <section class="section section-buttons">
+              <button class="calendar-button">
+                <i class="fa fa-calendar"></i>
+                <p>Calendar</p>
+              </button>
+            </section>
+          </a>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <p><b>Your Boards</b></p>
+          <button class="create-board-button">
+            <i
+              class="fa fa-plus"
+              style="
+                cursor: pointer;
+                transition: background-color 0.3s, box-shadow 0.3s;
+              "
+            ></i>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-members">
+        <div class="section-title">
+          <h2>Users Workspace</h2>
+          <button class="section-button">
+            <b>Invite workspace members</b>
+          </button>
+        </div>
+        <hr />
+        <div class="content-container">
+          <aside class="simple-side-panel">
+            <h3>Members</h3>
+            <ul>
+              <li style="font-size: 14px; padding: 3px">
+                Members of Workspace boards
+              </li>
+              <a href="navigation/members.html" style="text-decoration: none"
+                ><li class="list-button">Workspace members</li></a
+              >
+              <a href="guests.html" style="text-decoration: none"
+                ><li class="list-button">Guests</li></a
+              >
+              <a href="pending.html" style="text-decoration: none"
+                ><li class="list-button">Pending</li></a
+              >
+              <!-- Add more items as needed -->
+            </ul>
+          </aside>
+
+          <section class="main-desc">
+            <div class="main-descH3"><h3>Guests (0)</h3></div>
+            <p>
+              Guests can only view and edit the boards to which they've been
+              added.
+            </p>
+
+            <form style="width: 290px; margin-top: 15px">
+              <button type="submit">Search</button>
+              <input type="search" placeholder="Filter by name" />
+            </form>
+
+            <hr />
+
+            <p style="text-align: center">
+              <i>There are no guests in this Workspace.</i>
+            </p>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

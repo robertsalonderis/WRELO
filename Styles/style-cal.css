@@ -1,0 +1,149 @@
+/* Style for the "Filter" button */
+.section-button {
+    background-color: #0079bf;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+    /* align-self: flex-end; Remove or comment out this line */
+    /* margin-top: -38px; Remove or comment out this line */
+}
+
+/* Adjust the "Filter" button's position */
+.section-title2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Add margin to the "Filter" button for spacing */
+.section-button {
+    /* margin-top: -38px; Remove or comment out this line */
+    margin-right: 100px; /* Add margin to the right to separate it from other elements */
+}
+
+
+
+/* Style for the calendar buttons */
+.cal-buttons {
+    display: flex; /* Display buttons in a row */
+    align-items: center; /* Center vertically within the container */
+    margin-top: 10px; /* Add some top margin for spacing */
+}
+
+.cal-buttons button {
+    background-color: #085f9152; /* Button background color */
+    color: #000; /* Text color */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add rounded corners */
+    padding: 5px 10px; /* Add padding to the buttons */
+    font-size: 14px; /* Font size */
+    margin-right: 10px; /* Add spacing between buttons */
+    cursor: pointer;
+    display: flex; /* Display button contents in a row */
+    align-items: center; /* Center contents vertically */
+}
+
+.cal-buttons button:last-child {
+    margin-right: 0; /* Remove right margin for the last button */
+}
+
+.cal-buttons button:hover {
+    background-color: #609bbd; /* Button background color on hover */
+}
+
+.cal-buttons p {
+    margin: 0 10px; /* Add spacing around the paragraph symbol */
+    font-size: 20px; /* Increase font size for the paragraph symbol */
+}
+
+.cal-buttons i {
+    margin-left: 5px; /* Add spacing between icons and text */
+}
+
+
+/* Style for the calendar section */
+.calendar {
+    display: flex; /* Display the sections in a row */
+    width: 100%; /* Take up the full width of the container */
+    margin-left: 70px;
+}
+
+/* Style for each calendar section */
+.calendar-section {
+    flex-basis: calc(12.5% - 10px); /* Set the width of each section */
+    text-align: center; /* Center text horizontally */
+    border: 1px solid #ccc; /* Add a border for separation */
+    padding: 10px; /* Add some padding for spacing */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    background-color: #f5f5f5; /* Background color for each section */
+    height: 700px;
+    width: 250px;
+}
+
+/* Style for day name */
+.day {
+    font-weight: bold; /* Make the day name bold */
+}
+
+/* Style for date */
+.date {
+    font-size: 20px; /* Increase the font size for the date */
+}
+
+
+/* Apply different background colors for each day */
+.calendar-section:nth-child(1) {
+    background-color: #FFDDC1; /* Monday */
+}
+
+.calendar-section:nth-child(2) {
+    background-color: #C2E0C6; /* Tuesday */
+}
+
+.calendar-section:nth-child(3) {
+    background-color: #C9DCE4; /* Wednesday */
+}
+
+.calendar-section:nth-child(4) {
+    background-color: #FFB6C1; /* Thursday */
+}
+
+.calendar-section:nth-child(5) {
+    background-color: #E2E2E2; /* Friday */
+}
+
+.calendar-section:nth-child(6) {
+    background-color: #FFDDC1; /* Saturday */
+}
+
+.calendar-section:nth-child(7) {
+    background-color: #C2E0C6; /* Sunday */
+}
+
+
+
+
+
+
+
+
+
+/* Styles for screens smaller than 768px (e.g., smartphones) */
+@media (max-width: 768px) {
+    /* Your CSS rules for small screens here */
+}
+
+/* Styles for screens between 768px and 1024px (e.g., tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Your CSS rules for medium-sized screens here */
+}
+
+/* Styles for screens larger than 1024px (e.g., desktops and laptops) */
+@media (min-width: 1025px) {
+    /* Your CSS rules for large screens here */
+}
+
