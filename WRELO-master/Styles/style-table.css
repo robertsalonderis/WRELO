@@ -1,0 +1,127 @@
+/* Add this CSS to align the button with the right end of the paragraph */
+.visibility-row {
+    display: flex;
+    align-items: center; /* Align items vertically in the same row */
+    justify-content: space-between; /* Create space between paragraph and button */
+    margin-top: 10px; /* Adjust the margin as needed */
+}
+
+/* Add margin to the button for spacing */
+.visibility-row button.section-button {
+    margin-left: 10px; /* Adjust the margin as needed */
+}
+
+.section-button2 {
+    background-color: #085f91d0;
+    color: #fff;
+    border: none;
+    border-radius: 1px;
+    padding: 10px 15px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.section-button2:hover {
+    background-color: #0079bfa6;
+}
+
+.section-title2 {
+    display: flex;
+    justify-content: space-between; /* Align title and button to the right */
+    align-items: center; /* Center vertically */
+    padding: 20px;
+}
+
+.section-title2 h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.section-button {
+    background-color: #0079bf;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.section-button:hover {
+    background-color: #085f91;
+}
+
+/* Style for the main-desc section */
+.main-desc2 {
+    background-color: #fff;
+    color: #000;
+    width: 95%;
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Center child elements horizontally */
+}
+
+.table-sections p{
+    font-size: 12px;
+}
+
+/* Add padding to the paragraph line */
+.main-desc2 p {
+    margin-top: -10px; /* Adjust the negative margin to move the line up */
+}
+
+.table-sections {
+    display: flex; /* Display child elements in a row */
+    flex-wrap: wrap; /* Allow elements to wrap to the next row if needed */
+    justify-content: space-between; /* Add spacing between child elements */
+    width: 100%; /* Ensure the child elements take up the full width */
+    margin-top: 15px; /* Add some margin at the top for spacing */
+}
+
+.table-sections p {
+    flex-grow: 1; /* Allow each element to grow and take equal space */
+    text-align: start; /* Center the text within each element */
+    margin: 5px; /* Add margin to space out the elements horizontally */
+}
+
+/* Adjust button width and margin to place "Due date" button under "Filter" button */
+.table-sections button.section-button {
+    width: auto; /* Let the button width adjust to its content */
+    margin-top: 10px; /* Add margin to move it below the "Filter" button */
+}
+
+/* Style for the table sections */
+.s1 {
+    width: 300px; /* Add more spacing on the right side for "Card" */
+}
+
+.s2, .s3, .s4 {
+    margin-right: 10px; /* Add equal spacing between "List," "Labels," and "Members" */
+}
+
+
+/* Style for the "Due date" button */
+.s5-button {
+    padding: 5px 0; /* Fixed padding on the top and bottom, and no padding on the left and right */
+    border: none; /* Remove the default button border */
+    background-color: transparent; /* Remove the background color */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add transition effect on hover */
+    width: 200px; /* Allow the button width to adjust to its content */
+    font-size: 12px;
+    text-align: start; /* Align text to the start (left) */
+    vertical-align: middle; /* Vertically align the button with text */
+}
+
+/* Increase the padding on hover and change background color */
+.s5-button:hover:hover {
+    background-color: #f0f0f0; /* Change the background color on hover */
+}
+
+/* Style for the "Due date" button container */
+.s5-button {
+    display: flex; /* Display elements in a row */
+    align-items: center; /* Vertically align elements in the center */
+}
+
+

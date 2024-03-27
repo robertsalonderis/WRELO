@@ -1,0 +1,78 @@
+.main-boards {
+    flex: 1; /* Occupy half of the main content area */
+    background-color: #1183d6;
+    width: 100%;
+    padding: 20px;
+    margin-left: 40px; /* Adjust this value to match the width of your side panel */
+}
+
+hr{
+    padding: 5px;
+}
+
+/* Style for board sections */
+.board-section {
+    margin-bottom: 20px;
+    padding: 10px 10px 10px 50px;
+    height: 275px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent text overflow */
+}
+
+/* Add a border-top to each section to create horizontal lines */
+.most-popular-section,
+.starred-boards-section,
+.recently-reviewed-section,
+.workspace-section {
+    border-top: 1px solid #ccc; /* Add a horizontal line between sections */
+    padding: 20px; /* Add some padding to the sections */
+}
+
+/* Adjust the width of the sections to make them wider */
+.most-popular-section,
+.starred-boards-section,
+.recently-reviewed-section,
+.workspace-section {
+    width: 100%; /* Make the sections full width of the page */
+    max-width: none; /* Remove the max-width limit */
+    margin: 0; /* Remove margin to extend to the edge of the page */
+}
+
+/* Center the section titles */
+.section-title {
+    text-align: center;
+    margin-bottom: 20px; /* Add spacing below the titles */
+}
+
+/* Style for board section titles */
+.board-section-title {
+    background-color: #0079bf;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Style for board section title text */
+.board-section-title h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Add space between sections */
+.board-section + .board-section {
+    margin-top: 10px;
+}
+
+
+/* Style for board icons */
+.board-icon {
+    float: left;
+    margin-right: 10px;
+    font-size: 24px; /* Adjust the icon size as needed */
+}
+
+/* Style for board titles */
+.board-title {
+    margin-top: 2px; /* Adjust the vertical alignment of titles */
+    font-size: 18px; /* Adjust the title font size as needed */
+}
