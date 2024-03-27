@@ -5,6 +5,7 @@ const colorPicker = document.getElementById('color-picker');
 const createBoardButton = document.getElementById('create-board');
 const boardsContainer = document.getElementById('boards');
 
+
 addBoardButton.addEventListener('click', () => {
     boardPanel.classList.remove('hidden');
 });

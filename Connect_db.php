@@ -4,6 +4,7 @@ $lietotajvards = "root"; // The default username in XAMPP
 $parole = ""; // The default password in XAMPP
 $db_nosaukums = "wrelo_db"; // Replace with the name of your database
 
+
 // Create a connection
 $savienojums = mysqli_connect($servera_vards, $lietotajvards, $parole, $db_nosaukums);
 

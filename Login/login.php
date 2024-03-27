@@ -2,6 +2,7 @@
 // Start a new session or resume the existing session
 session_start();
 
+
 // Include the database connection script from an external file
 require_once '../Connect_db.php'; // Make sure the path to your connection script is correct
 
