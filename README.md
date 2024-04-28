@@ -3,6 +3,7 @@
 ### Plānošanas pārvaldības sistēmas tīmekļa lietotne ar papildus iebūvētu WhatsApp tērzēšanu. :rocket:
 
 
+![image](https://github.com/robertsalonderis/WRELO/assets/98739453/6bb1cccf-4c6c-40ca-9c22-dffb8ba56070)
 
 
 ### **Darāmo darbu sarkasts**
