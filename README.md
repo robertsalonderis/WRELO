@@ -23,6 +23,7 @@ Vairāku platformu pieejamība: piekļūstiet Wrelo no jebkuras vietas, neatkar�
 ### Darba sākšana
 Lai sāktu darbu ar Wrelo, vienkārši reģistrējieties mūsu vietnē un sāciet izveidot savu pirmo dēli.
 
-![image](https://github.com/robertsalonderis/WRELO/assets/98739453/53a03f40-d3e2-4e71-aced-b75e44251b2a)
+![image](https://github.com/robertsalonderis/WRELO/assets/98739453/842c56e5-5141-4c21-b05b-17964ee9d561)
+
 
 
