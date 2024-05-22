@@ -9,7 +9,6 @@
     transition: all 0.3s smooth;
 }
 
-
 /* Header Styles */
 /* ------------------------------------- */
 .trello-header {
@@ -35,6 +34,7 @@
     justify-content: center; /* Center the logo and text horizontally */
     margin: 0 auto; /* Optional: Center the logo container in its parent element */
     gap: 3px; /* Adjust space between elements */
+    padding-right: 2rem;
 }
 
 /* Logo Image Styles */
@@ -170,11 +170,12 @@
     border: 2px transparent;
     padding: 5px 10px; /* Adjust button padding */
     border-radius: 5px; /* Adjust button border radius */
+    text-decoration: none;
 }
 
 /* Search Bar Styles */
 /* ------------------------------------- */
-form {
+#search-form {
     color: #153851;
     display: flex;
     border: 1px solid currentColor;
@@ -402,8 +403,6 @@ input[type="search"]:focus {
     border-radius: 5px;
     padding: 20px;
 }
-
-/*Login*/
 
 
 

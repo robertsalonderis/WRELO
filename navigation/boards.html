@@ -10,8 +10,16 @@
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../Styles/style-b.css" />
     <style>
+      body {
+        background-color: #026AA7;
+      }
+
       body p {
         font-size: 14px;
+      }
+
+      .side-panel{
+        width: 295px;
       }
 
       ul {
@@ -41,7 +49,6 @@
         transition: opacity 0.3s; /* Add a smooth transition effect for visibility */
       }
 
-      
       /* Show the tooltip when hovering over the notification icon */
       .create-board-button:hover i.fa-plus::after {
         opacity: 0.9; /* Make the tooltip visible on hover */
@@ -55,10 +62,12 @@
         <div class="logo">
           <a href="../index.php">
             <img
-              src="../images/Screenshot 2023-09-18 155134.png"
+              src="../images/Wrelo-removebg-preview.png"
               alt="Trello Logo"
             />
           </a>
+          <h3>|</h3>
+          <h4>Wrello</h4>
         </div>
         <button id="workspace-button" class="header-button">Workspace ˅</button>
         <button id="recent-button" class="header-button">Recent ˅</button>
@@ -72,7 +81,7 @@
       </div>
       <div class="right-icons">
         <a href="../Login/login.php" class="login-button">Log In</a>
-        <form>
+        <form id="search-form">
           <button type="submit">Search</button>
           <input type="search" placeholder="Search..." />
         </form>

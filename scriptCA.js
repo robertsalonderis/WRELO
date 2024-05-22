@@ -11,5 +11,4 @@ function togglePasswordVisibility() {
         eyeIcon.classList.remove('fa-eye');
         eyeIcon.classList.add('fa-eye-slash');
     }
-    
 }

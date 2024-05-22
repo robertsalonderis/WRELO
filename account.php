@@ -7,20 +7,76 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../Styles/style-b.css" />
-    <link rel="stylesheet" href="../Styles/style-m.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Styles/style-b.css" />
+    <link rel="stylesheet" href="Styles/style-m.css" />
 
     <style></style>
-    <title>Members Workspace</title>
+    <title>Account</title>
+    <style>
+      body{
+        background: #ddd;
+      }
+
+      h1{
+        padding: 1rem 1rem 2.5rem 1rem;
+      }
+
+      .main-profile {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+      }
+
+.p-cont {
+  width: 100%;
+  max-width: 500px; /* Adjust based on your preference */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adjust the space between form elements */
+}
+
+#profile-form label {
+  font-weight: bold; /* Make labels bold */
+}
+
+#profile-form input[type="text"],
+#profile-form input[type="email"],
+#profile-form input[type="url"],
+#profile-form textarea {
+  padding: 8px;
+  margin-bottom: 10px; /* Space below each input */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 5px; /* Rounded corners for the inputs */
+}
+
+#profile-form button {
+  padding: 10px;
+  background-color: #007bff; /* Button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#profile-form button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+    </style>
   </head>
   <body>
     <header class="trello-header">
       <div class="left-header">
         <div class="logo">
-          <a href="../index.php">
+          <a href="index.php">
             <img
-              src="../images/Wrelo-removebg-preview.png"
+              src="images/Wrelo-removebg-preview.png"
               alt="Trello Logo"
             />
           </a>
@@ -38,7 +94,7 @@
         <!-- Remove the Create button from here -->
       </div>
       <div class="right-icons">
-        <a href="../Login/login.php" class="login-button">Log In</a>
+        <a href="Login/login.html" class="login-button">Log In</a>
         <form id="search-form">
           <button type="submit">Search</button>
           <input type="search" placeholder="Search..." />
@@ -55,7 +111,7 @@
         <button class="close-button">
           <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </button>
-        <a href="boards.html" class="section-link">
+        <a href="navigation/boards.html" class="section-link">
           <section class="section">
             <i class="fa fa-tasks"></i>
             <p>Boards</p>
@@ -63,14 +119,14 @@
           </section>
         </a>
 
-        <a href="members.html" class="section-link">
+        <a href="navigation/members.html" class="section-link">
           <section class="section">
             <i class="fa fa-user-plus"></i>
             <p>Members</p>
             <!-- List of members goes here -->
           </section>
         </a>
-        <a href="workspace.html" class="section-link">
+        <a href="navigation/workspace.html" class="section-link">
           <section class="section">
             <i class="fa fa-cog"></i>
             <p>Workspace Settings</p>
@@ -81,7 +137,7 @@
           <div class="h1-Wv">
             <p><b>Workspace views</b></p>
           </div>
-          <a href="table.html" class="section-link">
+          <a href="navigation/table.html" class="section-link">
             <section class="section section-buttons">
               <button class="table-button">
                 <i class="fa fa-th-list style=" styl="font-size: 16px"></i>
@@ -89,7 +145,7 @@
               </button>
             </section>
           </a>
-          <a href="calendar.html" class="section-link">
+          <a href="navigation/calendar.html" class="section-link">
             <section class="section section-buttons">
               <button class="calendar-button">
                 <i class="fa fa-calendar"></i>
@@ -119,61 +175,33 @@
         </div>
       </aside>
 
-      <main class="main-members">
-        <div class="section-title">
-          <h2>Users Workspace</h2>
-          <button class="section-button">
-            <b>Invite workspace members</b>
-          </button>
-        </div>
-        <hr />
-        <div class="content-container">
-          <aside class="simple-side-panel">
-            <h3>Members</h3>
-            <ul>
-              <li style="font-size: 14px; padding: 3px">
-                Members of Workspace boards
-              </li>
-              <li class="list-button">Workspace members</li>
-              <a href="../guests.html" style="text-decoration: none"
-                ><li class="list-button">Guests</li></a
-              >
-              <a href="../pending.html" style="text-decoration: none"
-                ><li class="list-button">Pending</li></a
-              >
-              <!-- Add more items as needed -->
-            </ul>
-          </aside>
 
-          <section class="main-desc">
-            <div class="main-descH3"><h3>Workspace members</h3></div>
-            <p>
-              Workspace members can view and join all Workspace visible boards
-              and create new boards in the Workspace.
-            </p>
 
-            <hr />
+      <main class="main-profile">
+  <div class="p-cont">
+    <h1>Profile</h1>
+    <form id="profile-form">
+      <label for="name">NAME</label>
+      <input type="text" id="name" placeholder="Your Name">
 
-            <div class="main-descH3"><h3>Invite members to join you</h3></div>
-            <div class="invite-content">
-              <p>
-                Anyone with an invite link can join this Free Workspace. You can
-                also disable and create a new invite link for this Workspace at
-                any time.
-              </p>
-            </div>
-            <button class="invite-button">Invite via link</button>
+      <label for="username">SURNAME</label>
+      <input type="text" id="name" placeholder="Your Surname">
 
-            <hr />
+      <label for="email">EMAIL</label>
+      <input type="email" id="email" placeholder="Your Email">
 
-            <form style="width: 290px">
-              <button type="submit">Search</button>
-              <input type="search" placeholder="Filter by name" />
-            </form>
-          </section>
-        </div>
-      </main>
-    </div>
+      <label for="location">USERNAME</label>
+      <input type="text" id="username" placeholder="Your Username">
+
+      <label for="website">WEBSITE</label>
+      <input type="url" id="website" placeholder="Your Website">
+
+      <label for="bio">BIO</label>
+      <textarea id="bio" placeholder="Your Bio" rows="4"></textarea>
+    </form>
+  </div>
+</main>
+
   </body>
-  <script src="../script.js"></script>
+  <script src="script.js"></script>
 </html>

@@ -1,0 +1,86 @@
+[22-May-2024 08:06:15 Europe/Riga] PHP Notice:  Undefined variable: Loma in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 68
+[22-May-2024 08:19:49 Europe/Riga] PHP Warning:  require(../connectDB.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 2
+[22-May-2024 08:19:49 Europe/Riga] PHP Fatal error:  require(): Failed opening required '../connectDB.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 2
+[22-May-2024 08:20:37 Europe/Riga] PHP Warning:  require(../connectDB.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 2
+[22-May-2024 08:20:37 Europe/Riga] PHP Fatal error:  require(): Failed opening required '../connectDB.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 2
+[22-May-2024 08:22:46 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 3
+[22-May-2024 08:22:46 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 3
+[22-May-2024 08:22:46 Europe/Riga] PHP Notice:  Undefined variable: savienojums in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 7
+[22-May-2024 08:22:46 Europe/Riga] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 7
+[22-May-2024 08:22:48 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 3
+[22-May-2024 08:22:48 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 3
+[22-May-2024 08:22:48 Europe/Riga] PHP Notice:  Undefined variable: savienojums in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 7
+[22-May-2024 08:22:48 Europe/Riga] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 7
+[22-May-2024 08:23:42 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 3
+[22-May-2024 08:23:42 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 3
+[22-May-2024 08:23:42 Europe/Riga] PHP Notice:  Undefined variable: savienojums in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 7
+[22-May-2024 08:23:42 Europe/Riga] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 7
+[22-May-2024 08:25:37 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 3
+[22-May-2024 08:25:37 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 3
+[22-May-2024 08:25:37 Europe/Riga] PHP Notice:  Undefined variable: savienojums in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 7
+[22-May-2024 08:25:37 Europe/Riga] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 7
+[22-May-2024 08:26:43 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 8
+[22-May-2024 08:26:43 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 8
+[22-May-2024 08:26:43 Europe/Riga] PHP Notice:  Undefined variable: savienojums in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 11
+[22-May-2024 08:26:43 Europe/Riga] PHP Notice:  Trying to get property 'connect_error' of non-object in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 11
+[22-May-2024 08:26:43 Europe/Riga] PHP Notice:  Undefined variable: savienojums in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 17
+[22-May-2024 08:26:43 Europe/Riga] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/index.php on line 17
+[22-May-2024 08:53:05 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:53:05 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:53:17 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:53:17 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:53:17 Europe/Riga] PHP Notice:  Undefined variable: savienojums in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 31
+[22-May-2024 08:53:17 Europe/Riga] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php:31
+Stack trace:
+#0 {main}
+  thrown in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 31
+[22-May-2024 08:55:06 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:55:06 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:55:16 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:55:16 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:55:16 Europe/Riga] PHP Notice:  Undefined variable: savienojums in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 31
+[22-May-2024 08:55:16 Europe/Riga] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php:31
+Stack trace:
+#0 {main}
+  thrown in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 31
+[22-May-2024 08:55:42 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:55:42 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:55:49 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:55:49 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:55:49 Europe/Riga] PHP Notice:  Undefined variable: savienojums in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 31
+[22-May-2024 08:55:49 Europe/Riga] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php:31
+Stack trace:
+#0 {main}
+  thrown in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 31
+[22-May-2024 08:55:55 Europe/Riga] PHP Warning:  include(Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:55:55 Europe/Riga] PHP Warning:  include(): Failed opening 'Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:58:26 Europe/Riga] PHP Warning:  include(..Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:58:26 Europe/Riga] PHP Warning:  include(): Failed opening '..Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:58:30 Europe/Riga] PHP Warning:  include(..Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:58:30 Europe/Riga] PHP Warning:  include(): Failed opening '..Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:58:36 Europe/Riga] PHP Warning:  include(..Connect_db.php): failed to open stream: No such file or directory in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:58:36 Europe/Riga] PHP Warning:  include(): Failed opening '..Connect_db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 9
+[22-May-2024 08:58:36 Europe/Riga] PHP Notice:  Undefined variable: savienojums in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 31
+[22-May-2024 08:58:36 Europe/Riga] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php:31
+Stack trace:
+#0 {main}
+  thrown in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 31
+[22-May-2024 09:06:20 Europe/Riga] PHP Notice:  session_start(): A session had already been started - ignoring in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 58
+[22-May-2024 09:13:21 Europe/Riga] PHP Notice:  session_start(): A session had already been started - ignoring in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 58
+[22-May-2024 09:13:30 Europe/Riga] PHP Notice:  session_start(): A session had already been started - ignoring in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 58
+[22-May-2024 09:14:20 Europe/Riga] PHP Notice:  session_start(): A session had already been started - ignoring in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 58

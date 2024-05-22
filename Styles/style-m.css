@@ -7,7 +7,6 @@
     margin-left: 40px; /* Adjust this value to match the width of your side panel */
 }
 
-
 .section-title {
     display: flex;
     justify-content: space-between; /* Align title and button to the right */
