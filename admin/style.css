@@ -1,0 +1,700 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap");
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ar box-sizing mēs varam iespējot to, ka ja norādam margin, padding, borders - netiek ietekmēts width un height */
+  outline: none; /* Noņemam kontūras */
+  border: none; /* Noņemam apmales */
+  text-decoration: none; /* Noņemam jebkādu teksta apdari */
+  transition: all .3s linear; /* Uzliekam pāreju visai vietnei VĒLĀK! */
+}
+
+:root{
+  --maincolor: #6844bb;
+  --secondcolor: #263238;
+}
+
+*::selection{ /* Atlasīšanas krāsa */
+  background: var(--maincolor);
+  color: #fff;
+}
+
+html {
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth; 
+}
+
+html::-webkit-scrollbar {
+  width: .8rem; /* 16 px = 1 rems (bāze) */
+}
+
+html::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--maincolor);
+  border-radius: 1rem;
+}
+
+body {
+  padding-left: 20rem;
+}
+
+section {
+  padding: 3rem 3%;
+}
+
+section:nth-child(even) { /* Katra otrā sekcija iekrāsojas */
+  background: #f6f6f6;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.heading span {
+  font-size: 2rem;
+  color: var(--maincolor);
+  text-transform: uppercase;
+}
+
+.heading h3 {
+  padding-top: 1rem;
+  font-size: 2rem;
+  color: var(--secondcolor);
+  text-transform: uppercase;
+}
+
+.btn {
+  display: inline-block; /* šim var iestatīt width un height un margin/padding. Vienkārši "inline" nevar to izdarīt. Bet vienkārši "block" uzliek aiz sevis pārtraukumu */
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  color: #fff;
+  background: var(--secondcolor);
+  font-size: 1rem;
+  border-radius: .4rem;
+}
+
+.btn:hover {
+  background: var(--maincolor);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: var(--maincolor);
+  width: 20rem;
+  height: 100%;
+  padding: 2rem;
+}
+
+.header .logo {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.header .logo i {
+  color: #ff0;
+}
+
+.header .navbar {
+  padding: 15% 0;
+}
+
+.header .navbar a {
+  display: block;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+  color: #fff;
+}
+
+.header .navbar a i {
+  color: #ff0;
+  padding-right: 1rem;
+}
+
+.header .navbar a:hover {
+  color: #ff0;
+}
+
+.header .navbar a:hover i {
+  padding-right: 1rem;
+}
+
+.header .credit {
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.header .credit span {
+  font-weight: bold;
+  color: #ff0;
+}
+
+.information {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.information .image {
+  flex: 1 1 30rem;
+}
+
+.information .image img {
+  width: 95%;
+}
+
+.information .content {
+  flex: 1 1 30rem;
+}
+
+.information .content span {
+  color: var(--maincolor);
+  font-size: 1.4rem;
+}
+
+.information .content h3 {
+  color: var(--secondcolor);
+  font-size: 2rem;
+  padding: 1.4rem 0;
+}
+
+.information .content p {
+  font-size: 1.rem;
+  color: #777;
+  padding-bottom: 0.7rem;
+  line-height: 2;
+}
+
+.info-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); /* fractional unit and 1fr is for 1 part of the available space. 
+  
+  It specifies that the grid should automatically adjust its size to fit the available space (auto-fit) and each column should have a minimum width of 15rem and a maximum width of 1fr (which means it will take up equal space within the container). This ensures that the grid items will wrap to a new row when there is not enough space for them in a single row.*/
+  gap: 1rem;
+}
+
+.info-container .box {
+  padding: 2rem;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 0.1rem solid #ccc;
+  box-shadow: 0 .5rem 1rem #ddd;
+  border-radius: .4rem;
+}
+
+.info-container .box i {
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+  font-size: 1rem;
+  border-radius: 100%;
+  background: var(--maincolor);
+  color: #fff;
+  text-align: center;
+}
+
+.info-container .box h3 {
+  font-size: 1.4rem;
+  padding-bottom: .5rem;
+  color: var(--secondcolor);
+}
+
+.info-container .box p {
+  font-size: 1rem;
+  color: #777;
+}
+
+.category .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+}
+
+.category .box-container .box {
+  text-align: center;
+  padding: 2rem 1rem;
+  border: 0.1rem solid #999;
+  box-shadow: 0 .5rem .7rem #ddd;
+  border-radius: .4rem;
+}
+
+.category .box-container .box:hover i {
+  transform: translateY(-1rem);
+}
+
+.category .box-container .box i {
+  height: 4rem;
+  width: 4rem;
+  line-height: 4rem;
+  font-size: 1.4rem;
+  border-radius: .5rem;
+  color: #fff;
+  background: var(--maincolor);
+  margin-bottom: 1.5rem;
+}
+
+.category .box-container .box h3 {
+  font-size: 1.4rem;
+  color: var(--secondcolor);
+}
+
+.category .box-container .box p { /* šito lkm nevajag */
+  font-size: 1.4rem;
+  color: #777;
+  line-height: 2;
+  padding-top: 1.5rem;
+}
+
+.courses .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  gap: 2rem;
+}
+
+.courses .box-container .box {
+  position: relative;
+  padding: 1rem;
+  border: 0.1rem solid #999;
+  overflow: hidden; /* Apgriezīs tekstu (ja būs pa garu) un neuzliks Scrollbaru */
+  text-align: center;
+  box-shadow: 0 .5rem .7rem #ddd;
+  border-radius: .4rem;
+}
+
+.courses .box-container .box:hover .content {
+  opacity: 1;
+}
+
+.courses .box-container .box .image img {
+  width: 100%;
+}
+
+.courses .box-container .box .image h3 {
+  font-size: 1.4rem;
+  color: var(--secondcolor);
+  font-weight: normal;
+  padding-bottom: 1rem;
+}
+
+.courses .box-container .box .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  background: var(--maincolor);
+  padding: 1rem;
+  opacity: 0;
+}
+
+.courses .box-container .box .content h3 {
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.courses .box-container .box .content p {
+  font-size: 1rem;
+  color: #fff;
+  padding: 1rem 0;
+  line-height: 2;
+}
+
+.courses .box-container .box .content .btn:hover {
+  background: #ff0;
+  color: var(--secondcolor);
+}
+
+.reviews .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 2rem;
+}
+
+.reviews .box-container .box {
+  text-align: center;
+  padding: 1rem;
+  background: #fff;
+  border: 0.1rem solid #999;
+  box-shadow: 0 .5rem .7rem #ddd;
+  border-radius: .4rem;
+}
+
+.reviews .box-container .box img {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.reviews .box-container .box h3 {
+  font-size: 1.4rem;
+  color: var(--secondcolor);
+}
+
+.reviews .box-container .box p {
+  line-height: 1.5;
+  padding: 1rem 0;
+  font-size: 1rem;
+  color: #777;
+}
+
+.reviews .box-container .box .stars i {
+  font-size: 1.2rem;
+  color: var(--maincolor);
+}
+
+.contact .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contact .row .contact-info-container {
+  width: 25rem;
+}
+
+.contact .row .contact-info-container .box {
+  margin-bottom: 3rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.contact .row .contact-info-container .box i {
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+  font-size: 1rem;
+  background: var(--maincolor);
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  margin-top: -1rem;
+}
+
+.contact .row .contact-info-container .box h3 {
+  font-size: 1.2rem;
+  color: var(--secondcolor);
+  padding-bottom: 1rem;
+}
+
+.contact .row .contact-info-container .box p {
+  font-size: 1rem;
+  color: #777;
+  line-height: 2;
+}
+
+.contact .row .contact-info-container .share {
+  padding-top: 1rem;
+}
+
+.contact .row .contact-info-container .share a {
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+  font-size: 1.4rem;
+  background: var(--secondcolor);
+  color: #fff;
+  margin-right: .1rem;
+  text-align: center;
+  border-radius: .4rem;
+}
+
+.contact .row .contact-info-container .share a:hover {
+  background: var(--maincolor);
+}
+
+.contact .row form {
+  flex: 1 1 25rem;
+}
+
+.contact .row form .inputBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact .row form .inputBox input {
+  width: 49%;
+  border-radius: .4rem;
+}
+
+.contact .row form .inputBox input, .contact .row form textarea {
+  padding: 1rem;
+  background: #f6f6f6;
+  text-transform: none;
+  color: #777;
+  margin: .4rem 0;
+  font-size: 1rem;
+  border: 0.1rem solid #999;
+  border-radius: .4rem;
+}
+
+.contact .row form textarea {
+  width: 100%;
+  resize: none;
+  height: 13rem;
+}
+
+#menu-btn {
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  font-size: 2.5rem;
+  background: var(--maincolor);
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  z-index: 1;
+  display: none;
+}
+
+#menu-btn.fa-times {
+  background: #fff;
+  color: var(--secondcolor);
+}
+
+#pazinojums{
+  position: fixed; /* Novietots pret skata punktu - vienmēr būs virspusē */
+  bottom:0; right: 0;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  background: var(--secondcolor);
+  color: #fff;
+  padding: 2rem 9%;
+  font-size: 1.4rem;
+  display: block;
+}
+
+#pazinojums p{
+  animation: blinker 2s linear infinite;
+}
+
+#pazinojums a{
+  cursor: pointer;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: .4;
+  }
+}
+
+.modal{
+  position: fixed;
+  background: rgba(0,0,0,.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.modalActive{
+  display: flex;
+}
+
+.modal .apply{
+  background: #eee;
+  width: 50rem;
+  border-radius: .5rem;
+  box-shadow: 0 .5rem 1rem #666;
+  padding: 2rem;
+  position: relative;
+}
+
+.apply .close_modal{
+  position: absolute;
+  right: 2rem;
+  background: var(--maincolor);
+  color: #fff;
+  padding: .5rem;
+  font-size: .7rem;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.apply .close_modal:hover{
+  background: var(--secondcolor);
+}
+
+.apply h2{
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--secondcolor);
+}
+
+.apply input{
+  width: 100%;
+  border-radius: .4rem;
+}
+
+.apply input[type=text], 
+.apply input[type=email], 
+.apply input[type=tel], 
+.apply input[type=password],
+select{
+  padding: 1rem;
+  background: #f6f6f6;
+  color: #777;
+  margin: .4rem 0;
+  font-size: 1rem;
+  border: .1rem solid #999;
+  margin-bottom: 1rem;
+  border-radius: .4rem;
+}
+
+.modal span{
+  color: #cc0000;
+}
+
+
+/* Admin daļa: */
+
+.login-kluda{
+  text-align: center;
+  color: #cc0000;
+  margin: 1rem 0;
+}
+
+.title{
+  background: #603fad;
+  border-bottom: 3px solid #999;
+  padding: 2.5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title .btn, .container .btn{
+  padding: .5rem 1rem;
+}
+
+.title .btn{
+  background: #eee;
+  color: var(--maincolor);
+  margin: 0;
+}
+
+.title .btn:hover{
+  background: var(--secondcolor);
+  color: #eee;
+}
+
+.container{
+  margin: 2rem;
+  width: 95%;
+}
+
+table{
+  width: 100%;
+  border-collapse: none;
+  border-spacing: 0 .5rem;
+}
+
+tr{
+  background: #f2f0f8;
+}
+
+th{
+  background: #ebe5f8;
+  padding: 1rem;
+  text-align: left;
+}
+
+td{
+  padding: 1rem;
+}
+
+td:first-child, th:first-child{
+  border-top-left-radius: .4rem;
+  border-bottom-left-radius: .4rem;
+}
+
+td:last-child, th:last-child{
+  border-top-right-radius: .4rem;
+  border-bottom-right-radius: .4rem;
+}
+
+.btn-delete{
+  color: #980000;
+}
+
+.btn-edit{
+  color: #009800;
+}
+
+.formElements{
+  display: grid;
+  grid-template-columns: 30% 70%;
+  align-items: center;
+}
+
+
+
+
+
+@media (max-width: 1600px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media (max-width: 1230px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media (max-width: 991px) {
+  body {
+    padding-left: 0;
+  }
+  #menu-btn {
+    display: block;
+  }
+  .header {
+    left: -110%;
+  }
+  .header.active {
+    left: 0;
+    -webkit-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.7);
+    width: 35rem;
+  }
+  .information .content h3 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+  .contact .row form .inputBox input {
+    width: 100%;
+  }
+}

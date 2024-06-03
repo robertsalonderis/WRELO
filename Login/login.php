@@ -3,52 +3,95 @@
 session_start();
 
 // Include the database connection script from an external file
-require_once '../Connect_db.php'; // Make sure the path to your connection script is correct
+require_once '../Connect_db.php'; // Ensure the path is correct
 
-// Check if the form was submitted using the POST method
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['lietotajvards'], $_POST['parole'])) {
-    // Retrieve the submitted username and password from the form
-    $lietotajvards = $_POST['lietotajvards'];
-    $parole = $_POST['parole'];
+// Initialize error messages
+$login_error = '';
+$signup_error = '';
 
-    // SQL query to select the user record from the database where the username matches
-    $sql = "SELECT * FROM darbinieki WHERE lietotajvards = ?";
-    
-    // Prepare the SQL statement to prevent SQL injection
-    if ($stmt = mysqli_prepare($savienojums, $sql)) {
-        // Bind the input username to the prepared statement
-        mysqli_stmt_bind_param($stmt, "s", $lietotajvards);
+// Check if the login form was submitted using the POST method
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+    if (isset($_POST['lietotajvards'], $_POST['parole'])) {
+        // Retrieve the submitted username and password from the form
+        $lietotajvards = $_POST['lietotajvards'];
+        $parole = $_POST['parole'];
+
+        // SQL query to select the user record from the database where the username matches
+        $sql = "SELECT * FROM wrelo_lietotaji WHERE lietotajvards = ?";
         
-        // Execute the prepared statement
-        if (mysqli_stmt_execute($stmt)) {
-            // Get the result of the query
-            $result = mysqli_stmt_get_result($stmt);
+        // Prepare the SQL statement to prevent SQL injection
+        if ($stmt = mysqli_prepare($savienojums, $sql)) {
+            // Bind the input username to the prepared statement
+            mysqli_stmt_bind_param($stmt, "s", $lietotajvards);
             
-            // Fetch the user record from the database
-            if ($row = mysqli_fetch_assoc($result)) {
-                // Verify the submitted password against the hashed password stored in the database
-                if (password_verify($parole, $row['parole'])) {
-                    // If password is correct, store the username in the session
-                    $_SESSION['lietotajvards'] = $lietotajvards;
+            // Execute the prepared statement
+            if (mysqli_stmt_execute($stmt)) {
+                // Get the result of the query
+                $result = mysqli_stmt_get_result($stmt);
+                
+                // Fetch the user record from the database
+                if ($row = mysqli_fetch_assoc($result)) {
+                    // Verify the submitted password against the hashed password stored in the database
+                    if (password_verify($parole, $row['parole'])) {
+                        // If password is correct, store the username in the session
+                        $_SESSION['lietotajvards'] = $lietotajvards;
 
-                    // Redirect the user to the index page
-                    header("Location: ../index.php");
-                    exit(); // Ensure no further code is executed after redirection
+                        // Redirect the user to the index page
+                        header("Location: ../main.php");
+                        exit(); // Ensure no further code is executed after redirection
+                    } else {
+                        // Store an error message if the password is incorrect
+                        $login_error = "Ievadītā parole nebija derīga!";
+                    }
                 } else {
-                    // Store an error message if the password is incorrect
-                    $login_error = "Ievadītā parole nebija derīga!";
+                    // Store an error message if no user was found with the given username
+                    $login_error = "Nav atrasts neviens konts ar šo lietotājvārdu!";
                 }
             } else {
-                // Store an error message if no user was found with the given username
-                $login_error = "Nav atrasts neviens konts ar šo lietotājvārdu!";
+                // Store an error message if there was a problem executing the statement
+                $login_error = "Hmm! Kaut kas nogāja greizi. Lūdzu, pamēģiniet vēlreiz vēlāk.";
             }
-        } else {
-            // Store an error message if there was a problem executing the statement
-            $login_error = "Hmm! Kaut kas nogāja greizi. Lūdzu, pamēģiniet vēlreiz vēlāk.";
-        }
 
-        // Close the prepared statement
-        mysqli_stmt_close($stmt);
+            // Close the prepared statement
+            mysqli_stmt_close($stmt);
+        }
+    }
+}
+
+// Check if the signup form was submitted using the POST method
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup'])) {
+    // Retrieve the submitted data from the form
+    if (isset($_POST['vards'], $_POST['uzvards'], $_POST['signup_lietotajvards'], $_POST['epasts'], $_POST['signup_parole'])) {
+        $vards = $_POST['vards'];
+        $uzvards = $_POST['uzvards'];
+        $lietotajvards = $_POST['signup_lietotajvards'];
+        $epasts = $_POST['epasts'];
+        $parole = $_POST['signup_parole'];
+
+        // Hash the password before storing it in the database
+        $hashed_parole = password_hash($parole, PASSWORD_DEFAULT);
+
+        // SQL query to insert a new user record into the database
+        $sql = "INSERT INTO wrelo_lietotaji (liet_vards, liet_uzvards, lietotajvards, liet_epasts, parole, statuss, lietotaja_loma) VALUES (?, ?, ?, ?, ?, 'aktīvs', 'Lietotājs')";
+
+        // Prepare the SQL statement to prevent SQL injection
+        if ($stmt = mysqli_prepare($savienojums, $sql)) {
+            // Bind the input values to the prepared statement
+            mysqli_stmt_bind_param($stmt, "sssss", $vards, $uzvards, $lietotajvards, $epasts, $hashed_parole);
+
+            // Execute the prepared statement
+            if (mysqli_stmt_execute($stmt)) {
+                // Redirect the user to the login page after successful registration
+                header("Location: ../main.php");
+                exit(); // Ensure no further code is executed after redirection
+            } else {
+                // Store an error message if there was a problem executing the statement
+                $signup_error = "Hmm! Kaut kas nogāja greizi. Lūdzu, pamēģiniet vēlreiz vēlāk.";
+            }
+
+            // Close the prepared statement
+            mysqli_stmt_close($stmt);
+        }
     }
 }
 ?>
@@ -66,12 +109,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['lietotajvards'], $_POS
         <div class="form-container sign-up">
             <form action="login.php" method="post">
                 <h1>Izveidot kontu</h1>
-                <input type="text" placeholder="Vārds" />
-                <input type="text" placeholder="Uzvārds" />
-                <input type="text" placeholder="Lietotājvards" />
-                <input type="email" placeholder="E-pasts" />
-                <input type="password" placeholder="Parole" />
-                <button>Reģistrēties</button>
+                <?php if (!empty($signup_error)): ?>
+                    <p class="error"><?php echo $signup_error; ?></p>
+                <?php endif; ?>
+                <input type="text" name="vards" placeholder="Vārds" required />
+                <input type="text" name="uzvards" placeholder="Uzvārds" required />
+                <input type="text" name="signup_lietotajvards" placeholder="Lietotājvārds" required />
+                <input type="email" name="epasts" placeholder="E-pasts" required />
+                <input type="password" name="signup_parole" placeholder="Parole" required />
+                <button type="submit" name="signup">Reģistrēties</button>
             </form>
         </div>
         <div class="form-container sign-in">
@@ -86,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['lietotajvards'], $_POS
                 <h5>VAI</h5>
                 <input type="text" name="lietotajvards" placeholder="Lietotājvārds" required />
                 <input type="password" name="parole" placeholder="Parole" required />
-                <button type="submit">Pieslēgties</button>
+                <button type="submit" name="login">Pieslēgties</button>
             </form>
         </div>
         <div class="toggle-container">
@@ -107,3 +153,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['lietotajvards'], $_POS
     <script src="login-script.js"></script>
 </body>
 </html>
+
+

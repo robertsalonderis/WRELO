@@ -74,7 +74,7 @@
     <header class="trello-header">
       <div class="left-header">
         <div class="logo">
-          <a href="index.php">
+          <a href="main.php">
             <img
               src="images/Wrelo-removebg-preview.png"
               alt="Trello Logo"
@@ -89,10 +89,7 @@
         <button id="starred-button" class="header-button">Starred ˅</button>
         <button id="create-button" class="header-button">Create</button>
       </div>
-
-      <div class="right-header">
-        <!-- Remove the Create button from here -->
-      </div>
+      
       <div class="right-icons">
         <a href="Login/login.html" class="login-button">Log In</a>
         <form id="search-form">

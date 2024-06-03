@@ -1,5 +1,6 @@
 /* Import external fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* Global styles */
 * {
     font-family: 'Montserrat', sans-serif;
@@ -7,21 +8,21 @@
     padding: 0;
     box-sizing: border-box;
     transition: all 0.3s smooth;
+    text-decoration: none;
+    outline: none;
 }
 
 /* Header Styles */
-/* ------------------------------------- */
 .trello-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2px 10px; /* Adjust header padding */
+    padding: 2px 10px;
     background-color: #0079bf;
     color: #fff;
-    height: 60px; /* Adjust header height */
+    height: 60px;
 }
 
-/* Left side of the header */
 .left-header {
     display: flex;
     align-items: center;
@@ -31,41 +32,37 @@
 .logo {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the logo and text horizontally */
-    margin: 0 auto; /* Optional: Center the logo container in its parent element */
-    gap: 3px; /* Adjust space between elements */
+    justify-content: center;
+    margin: 0 auto;
+    gap: 3px;
     padding-right: 2rem;
 }
 
-/* Logo Image Styles */
 .logo img {
-    width: 60px; /* Keep the logo's aspect ratio */
-    height: 50px; /* Make the logo taller */
+    width: 60px;
+    height: 50px;
 }
 
-/* Divider Styles */
 .logo h3 {
-    margin: 0; /* Remove default margin */
-    color: transparent; /* Hide the text */
-    border-left: 1px solid #fff; /* Create a vertical line */
-    height: 50px; /* Adjust the height of the dividing line */
+    margin: 0;
+    color: transparent;
+    border-left: 1px solid #fff;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Text Styles */
 .logo h4 {
-    margin: 0; /* Adjust as needed */
-    font-size: 20px; /* Adjust based on your design preference */
+    margin: 0;
+    font-size: 20px;
 }
 
-
-.h1-Wv{
+.h1-Wv {
     padding: 5px;
 }
 
-/* Style for section buttons */
+/* Section buttons */
 .section-buttons button {
     background-color: transparent;
     border: none;
@@ -73,54 +70,50 @@
     font-size: 16px;
     margin-right: 10px;
     cursor: pointer;
-    display: flex; /* Add this property to make buttons display as flex containers */
-    align-items: center; /* Center the button content vertically */
+    display: flex;
+    align-items: center;
 }
 
-/* Style for the icons inside section buttons */
 .section-buttons button i {
-    margin-right: 5px; /* Add space between the icon and text */
+    margin-right: 5px;
 }
 
-/* Apply the section button style to the "Table" and "Calendar" buttons */
 .section-buttons .table-button,
 .section-buttons .calendar-button {
-    font-size: 14px; /* Adjust button font size */
-    margin-right: 10px; /* Add space between buttons */
+    font-size: 14px;
+    margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s, background-color 0.3s, border-color 0.3s, padding 0.3s;
     border: 2px transparent;
-    padding: 5px 10px; /* Adjust button padding */
-    border-radius: 5px; /* Adjust button border radius */
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
-/* Hover effect for the "Table" and "Calendar" buttons */
 .section-buttons .table-button:hover,
 .section-buttons .calendar-button:hover {
     background-color: #085f91;
-    padding: 5px 15px; /* Adjust padding */
-    border-radius: 5px; /* Adjust border radius */
+    padding: 5px 15px;
+    border-radius: 5px;
 }
 
-
-/* Style for header buttons */
+/* Header buttons */
 .header-button {
     background-color: transparent;
     border: none;
     color: #fff;
-    font-size: 14px; /* Adjust button font size */
-    margin-right: 10px; /* Add space between buttons */
+    font-size: 14px;
+    margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s, background-color 0.3s, border-color 0.3s, padding 0.3s;
     border: 2px transparent;
-    padding: 5px 10px; /* Adjust button padding */
-    border-radius: 5px; /* Adjust button border radius */
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .header-button:hover {
     background-color: #085f91;
-    padding: 5px 15px; /* Adjust padding */
-    border-radius: 5px; /* Adjust border radius */
+    padding: 5px 15px;
+    border-radius: 5px;
 }
 
 /* Create Button */
@@ -128,53 +121,50 @@
     background-color: transparent;
     border: none;
     color: #fff;
-    font-size: 14px; /* Adjust button font size */
+    font-size: 14px;
     cursor: pointer;
     margin-right: 10px;
-    padding: 5px 20px; /* Adjust button padding */
+    padding: 5px 20px;
     transition: color 0.3s, background-color 0.3s, border-color 0.3s, padding 0.3s;
     border: 2px transparent;
-    border-radius: 5px; /* Adjust button border radius */
+    border-radius: 5px;
 }
 
 .create-button:hover {
     background-color: #085f91;
-    border-radius: 5px; /* Adjust border radius */
+    border-radius: 5px;
 }
 
-/* Right Side of Header */
+/* Right Header */
 .right-header {
     display: flex;
     align-items: center;
     margin-left: auto;
 }
 
-/* Right Icons */
 .right-icons {
     display: flex;
     justify-content: flex-end;
     flex-grow: 0.1;
-    align-items: center; /* Align icons vertically */
+    align-items: center;
 }
 
-
-/* Style for the Log In button */
+/* Log In Button */
 .login-button {
     background-color: transparent;
     border: none;
     color: #fff;
-    font-size: 14px; /* Adjust button font size */
-    margin-right: 10px; /* Add space between buttons */
+    font-size: 14px;
+    margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s, background-color 0.3s, border-color 0.3s, padding 0.3s;
     border: 2px transparent;
-    padding: 5px 10px; /* Adjust button padding */
-    border-radius: 5px; /* Adjust button border radius */
+    padding: 5px 10px;
+    border-radius: 5px;
     text-decoration: none;
 }
 
-/* Search Bar Styles */
-/* ------------------------------------- */
+/* Search Bar */
 #search-form {
     color: #153851;
     display: flex;
@@ -192,7 +182,7 @@ input[type="search"] {
     color: #fff;
     border: 1px solid transparent;
     border-radius: inherit;
-    width: 250px; /* Adjust search input width */
+    width: 250px;
 }
 
 input[type="search"]::placeholder {
@@ -225,78 +215,92 @@ input[type="search"]:focus {
     outline: none;
 }
 
-/* Add space to the right of the icons and from the right page end */
-/* ------------------------------------- */
+/* Notification, Account, and Create Board Buttons */
 .notification-button, .account-button, .create-board-button {
     background-color: transparent;
     border: none;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    margin-right: 10px; /* Add space to the right of the icons */
-    margin-left: auto; /* Push them to the right page end */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Add transition for smoother hover effect */
+    margin-right: 10px;
+    margin-left: auto;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .notification-button:hover, .account-button, .create-board-button:hover {
-    transform: scale(1.3); /* Or whatever value looks best */
+    transform: scale(1.3);
     cursor: pointer;
 }
 
-/* Add a hover effect to the notification icon */
 .notification-button:hover i.fa-bell::after {
-    content: "Notifications"; /* Add the text you want to display */
+    content: "Notifications";
     display: block;
-    background-color: #012941; /* Background color for the tooltip */
-    color: #fff; /* Text color for the tooltip */
-    padding: 5px; /* Adjust the padding as needed */
-    border-radius: 5px; /* Add rounded corners to the tooltip */
+    background-color: #012941;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
     position: absolute;
-    top: 100%; /* Position the tooltip below the icon */
-    left: 50%; /* Center the tooltip horizontally */
-    transform: translateX(-50%); /* Center the tooltip horizontally */
-    font-size: 9px; /* Adjust the font size as needed */
-    white-space: nowrap; /* Prevent text from wrapping */
-    opacity: 0; /* Initially hide the tooltip */
-    transition: opacity 0.3s; /* Add a smooth transition effect for visibility */
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-/* Show the tooltip when hovering over the notification icon */
 .notification-button:hover i.fa-bell::after {
-    opacity: 0.9; /* Make the tooltip visible on hover */
+    opacity: 0.9;
 }
 
-/* Add a hover effect to the notification icon */
 .account-button:hover i.fa-user-circle-o::after {
-    content: "Account"; /* Add the text you want to display */
+    content: "Account";
     display: block;
-    background-color: #012941; /* Background color for the tooltip */
-    color: #fff; /* Text color for the tooltip */
-    padding: 5px; /* Adjust the padding as needed */
-    border-radius: 5px; /* Add rounded corners to the tooltip */
+    background-color: #012941;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
     position: absolute;
-    top: 100%; /* Position the tooltip below the icon */
-    left: 50%; /* Center the tooltip horizontally */
-    transform: translateX(-50%); /* Center the tooltip horizontally */
-    font-size: 9px; /* Adjust the font size as needed */
-    white-space: nowrap; /* Prevent text from wrapping */
-    opacity: 0; /* Initially hide the tooltip */
-    transition: opacity 0.3s; /* Add a smooth transition effect for visibility */
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-/* Show the tooltip when hovering over the notification icon */
 .account-button:hover i.fa-user-circle-o::after {
-    opacity: 0.9; /* Make the tooltip visible on hover */
+    opacity: 0.9;
+}
+
+.create-board-button:hover i.fa-plus::after {
+    content: "Add board";
+    display: block;
+    background-color: #012941;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.create-board-button:hover i.fa-plus::after {
+    opacity: 0.9;
 }
 
 /* Page Structure */
-/* ------------------------------------- */
 .page {
     display: flex;
 }
 
 /* Side Panel Styles */
-/* ------------------------------------- */
 .side-panel {
     width: 290px;
     background-color: #026AA7;
@@ -310,16 +314,15 @@ input[type="search"]:focus {
 }
 
 /* Side Panel Sections */
-/* Modify the .side-panel .section CSS for hover effect */
 .side-panel .section {
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s;
     border: 2px transparent solid;
     border-radius: 5px;
     margin-bottom: 10px;
-    display: flex; /* Add flex display to align items horizontally */
-    align-items: center; /* Center the icon and text vertically */
-    padding: 10px; /* Add padding to create a larger clickable area */
+    display: flex;
+    align-items: center;
+    padding: 10px;
 }
 
 .side-panel .section:hover {
@@ -328,42 +331,33 @@ input[type="search"]:focus {
     border-color: #085f91;
 }
 
-
-/* Adjust icon style to be inline */
 .side-panel .section li i {
-    display: inline; /* Display the icon inline with text */
-    margin-right: 5px; /* Add some space between the icon and text */
+    display: inline;
+    margin-right: 5px;
 }
 
 .side-panel .section i {
-    margin-right: 10px; /* Adjust the spacing between the icon and text */
-    font-size: 18px; /* Adjust the icon size as needed */
-    min-width: 20px; /* Set a minimum width for the icon container */
-    text-align: center; /* Center the icon horizontally */
+    margin-right: 10px;
+    font-size: 18px;
+    min-width: 20px;
+    text-align: center;
 }
 
-/* Style the link to match the design of sections and buttons */
 .section-link {
-    text-decoration: none; /* Remove underline */
-    color: #fff; /* Text color */
-    display: block; /* Make the link a block-level element */
-    border-radius: 5px; /* Add border radius */
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Add hover transition */
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
-/* Style the link on hover */
 .section-link:hover {
-    background-color: #085f91; /* Hover background color */
-    border-color: #085f91; /* Hover border color */
-    color: #fff; /* Hover text color */
+    background-color: #085f91;
+    border-color: #085f91;
+    color: #fff;
 }
 
-
-
-/* Close Button Styles */
-/* ------------------------------------- */
-
-
+/* Close Button */
 .close-button {
     background: none;
     border: none;
@@ -375,54 +369,166 @@ input[type="search"]:focus {
     cursor: pointer;
 }
 
-/* Adjust the main content area */
-/* ------------------------------------- */
+/* Main Content */
 .main-content {
     flex: 1;
     padding: 20px;
-    display: flex; /* Create a flex container for two columns */
-    align-items: flex-start; /* Align items to the top of each column */
+    display: flex;
+    align-items: flex-start;
 }
 
-/* Style the chat section */
-/* ------------------------------------- */
+/* Chat Section */
 .chat-section {
-    flex: 1; /* Occupy half of the main content area */
+    flex: 1;
     background-color: #f4f4f4;
     border-radius: 5px;
     padding: 20px;
-    margin-right: 10px; /* Add some space between the columns */
-    border-right: 1px solid #ccc; /* Add a vertical border to separate sections */
+    margin-right: 10px;
+    border-right: 1px solid #ccc;
 }
 
-/* Style the planning section */
-/* ------------------------------------- */
+/* Planning Section */
 .planning-section {
-    flex: 1; /* Occupy half of the main content area */
+    flex: 1;
     background-color: #fff;
     border-radius: 5px;
     padding: 20px;
 }
 
+body p {
+    font-size: 14px;
+}
 
+ul {
+    list-style-type: none;
+}
 
+ul li {
+    justify-content: center;
+    align-items: center;
+}
 
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
 
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
 
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
 
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
+.background-selection {
+    margin: 15px 0;
+}
 
-/* Styles for screens smaller than 768px (e.g., smartphones) */
+.background-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bg-option {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid transparent;
+}
+
+.bg-option.selected {
+    border: 2px solid #333;
+}
+
+.required {
+    color: red;
+}
+
+#boardTitle {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Board and Task Styles */
+.board {
+    display: inline-block;
+    vertical-align: top;
+    background-color: #e2e4e6;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+}
+
+.board h3 {
+    margin-top: 0;
+}
+
+.task {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+}
+
+.add-card {
+    display: flex;
+    align-items: center;
+    color: #5e6c84;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.add-card:hover {
+    background-color: rgba(9, 30, 66, 0.08);
+    border-radius: 5px;
+}
+
+.task .task-title {
+    margin: 0;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    /* Your CSS rules for small screens here */
+    /* Small screens (e.g., smartphones) */
 }
 
-/* Styles for screens between 768px and 1024px (e.g., tablets) */
 @media (min-width: 769px) and (max-width: 1024px) {
-    /* Your CSS rules for medium-sized screens here */
+    /* Medium screens (e.g., tablets) */
 }
 
-/* Styles for screens larger than 1024px (e.g., desktops and laptops) */
 @media (min-width: 1025px) {
-    /* Your CSS rules for large screens here */
+    /* Large screens (e.g., desktops and laptops) */
 }

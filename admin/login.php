@@ -66,15 +66,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             header("location: index.php");
                         } else{
                             // Display an error message if password is not valid
-                            $parole_err = "The password you entered was not valid.";
+                            $parole_err = "Parole, kas tika ievadīta nav pareiza";
                         }
                     }
                 } else{
                     // Display an error message if username doesn't exist
-                    $lietotajs_err = "No account found with that username.";
+                    $lietotajs_err = "Šāds lietotājvārds netika atrasts";
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Ak vai! Kaut kas nogāja greizi. Lūdzu mēģini vēlreiz.";
             }
 
             // Close statement
@@ -119,5 +119,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>    
 </body>
 </html>
+
+
+
 
 
