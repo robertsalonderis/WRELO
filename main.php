@@ -1,5 +1,4 @@
 <?php
-// main.php
 session_start();
 
 // Check if user is logged in
@@ -20,7 +19,7 @@ $user_id = $_SESSION['user_id'];
     <link rel="stylesheet" href="style.css" />
     <title>WRELO</title>
     <style>
-        /* Modal Styles (already defined, make sure to include the new ones) */
+        /* Modal Styles */
         .modal-content label {
             display: block;
             margin-bottom: 8px;
@@ -205,14 +204,12 @@ $user_id = $_SESSION['user_id'];
                 <section class="section">
                     <i class="fa fa-tasks"></i>
                     <p>Boards</p>
-                    <!-- List of boards goes here -->
                 </section>
             </a>
             <a href="navigation/members.html" class="section-link">
                 <section class="section">
                     <i class="fa fa-user-plus"></i>
                     <p>Members</p>
-                    <!-- List of members goes here -->
                 </section>
             </a>
             <a href="navigation/workspace.html" class="section-link">
@@ -229,13 +226,12 @@ $user_id = $_SESSION['user_id'];
                     <section class="section">
                             <i class="fa fa-calendar"></i>
                             <p>Calendar</p>
-                        </button>
                     </section>
                 </a>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <p><b>Your Workspaces</b></p>
-                <button class="create-workspace-button">
+                <button class="create-workspace-button" id="createWorkspaceBtn">
                     <i class="fa fa-plus"></i>
                 </button>
             </div>
@@ -247,7 +243,6 @@ $user_id = $_SESSION['user_id'];
             <section class="chat-section">
                 <h2>WhatsApp-like Chat</h2>
                 <div class="chat-messages">
-                    <!-- Chat messages go here -->
                     <div class="message">
                         <span class="user">User 1:</span>
                         <p>Hello, how are you?</p>
@@ -262,7 +257,7 @@ $user_id = $_SESSION['user_id'];
             </section>
             <section class="planning-section">
                 <h2>Trello-like Planning System</h2>
-                <div class="board-container">
+                <div class="board-container" id="boardContainer">
                     <!-- Boards will be added here -->
                 </div>
             </section>
@@ -340,5 +335,6 @@ $user_id = $_SESSION['user_id'];
     <script src="script.js"></script>
 </body>
 </html>
+
 
 

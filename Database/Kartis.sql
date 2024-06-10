@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 02, 2024 at 10:20 PM
+-- Generation Time: Jun 10, 2024 at 11:38 AM
 -- Server version: 10.6.17-MariaDB-cll-lve
 -- PHP Version: 7.4.33
 
@@ -29,11 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Kartis` (
   `kartis_id` int(11) NOT NULL,
-  `deli_id` int(11) NOT NULL,
+  `deli_id` int(11) DEFAULT NULL,
   `apraksts` text DEFAULT NULL,
   `krasu_etikete` varchar(7) DEFAULT NULL,
-  `izveidots` timestamp NOT NULL DEFAULT current_timestamp()
+  `file_attachment` varchar(255) DEFAULT NULL,
+  `comments` text DEFAULT NULL,
+  `checklist` text DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+
+--
+-- Dumping data for table `Kartis`
+--
+
+INSERT INTO `Kartis` (`kartis_id`, `deli_id`, `apraksts`, `krasu_etikete`, `file_attachment`, `comments`, `checklist`) VALUES
+(11, 13, 'Sveiki', '', NULL, NULL, NULL),
+(10, 12, 'sdsd', '', NULL, NULL, NULL),
+(9, 9, 'Testesana', '', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -54,7 +65,7 @@ ALTER TABLE `Kartis`
 -- AUTO_INCREMENT for table `Kartis`
 --
 ALTER TABLE `Kartis`
-  MODIFY `kartis_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `kartis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

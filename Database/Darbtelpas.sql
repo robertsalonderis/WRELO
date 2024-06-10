@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 02, 2024 at 10:20 PM
+-- Generation Time: Jun 10, 2024 at 11:38 AM
 -- Server version: 10.6.17-MariaDB-cll-lve
 -- PHP Version: 7.4.33
 
@@ -24,36 +24,49 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Komentari`
+-- Table structure for table `Darbtelpas`
 --
 
-CREATE TABLE `Komentari` (
-  `komentari_id` int(11) NOT NULL,
-  `kartis_id` int(11) NOT NULL,
-  `kom_teksts` text DEFAULT NULL,
-  `izveidots` timestamp NOT NULL DEFAULT current_timestamp()
+CREATE TABLE `Darbtelpas` (
+  `darbtelpa_id` int(11) NOT NULL,
+  `lietotajs_id` int(11) DEFAULT NULL,
+  `nosaukums` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+
+--
+-- Dumping data for table `Darbtelpas`
+--
+
+INSERT INTO `Darbtelpas` (`darbtelpa_id`, `lietotajs_id`, `nosaukums`) VALUES
+(13, 6, 'Skola'),
+(12, 6, 'Majaslapas'),
+(11, 6, 'Majas'),
+(10, 6, 'Darbs'),
+(9, 6, 'Skola'),
+(8, 6, 'Test'),
+(14, 6, 'sds'),
+(15, 6, 'sdsd');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `Komentari`
+-- Indexes for table `Darbtelpas`
 --
-ALTER TABLE `Komentari`
-  ADD PRIMARY KEY (`komentari_id`),
-  ADD KEY `kartis_id` (`kartis_id`);
+ALTER TABLE `Darbtelpas`
+  ADD PRIMARY KEY (`darbtelpa_id`),
+  ADD KEY `lietotajs_id` (`lietotajs_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `Komentari`
+-- AUTO_INCREMENT for table `Darbtelpas`
 --
-ALTER TABLE `Komentari`
-  MODIFY `komentari_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `Darbtelpas`
+  MODIFY `darbtelpa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

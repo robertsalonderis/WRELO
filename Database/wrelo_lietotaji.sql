@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 02, 2024 at 10:20 PM
+-- Generation Time: Jun 10, 2024 at 12:23 PM
 -- Server version: 10.6.17-MariaDB-cll-lve
 -- PHP Version: 7.4.33
 
@@ -68,7 +68,7 @@ ALTER TABLE `wrelo_lietotaji`
 -- AUTO_INCREMENT for table `wrelo_lietotaji`
 --
 ALTER TABLE `wrelo_lietotaji`
-  MODIFY `lietotajs_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `lietotajs_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
