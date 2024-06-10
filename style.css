@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2px 10px;
+    padding: 0 2.5rem;
     background-color: #0079bf;
     color: #fff;
     height: 60px;
@@ -25,7 +25,6 @@
 
 .left-header {
     display: flex;
-    align-items: center;
 }
 
 /* Logo Styles */
@@ -62,90 +61,25 @@
     padding: 5px;
 }
 
-/* Section buttons */
-.section-buttons button {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    margin-right: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-.section-buttons button i {
-    margin-right: 5px;
-}
-
-.section-buttons .table-button,
-.section-buttons .calendar-button {
-    font-size: 14px;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: color 0.3s, background-color 0.3s, border-color 0.3s, padding 0.3s;
-    border: 2px transparent;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.section-buttons .table-button:hover,
-.section-buttons .calendar-button:hover {
-    background-color: #085f91;
-    padding: 5px 15px;
-    border-radius: 5px;
-}
-
 /* Header buttons */
 .header-button {
     background-color: transparent;
-    border: none;
     color: #fff;
     font-size: 14px;
-    margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s, background-color 0.3s, border-color 0.3s, padding 0.3s;
-    border: 2px transparent;
-    padding: 5px 10px;
+    border: transparent;
+    padding: 1rem 5px;
     border-radius: 5px;
 }
 
 .header-button:hover {
     background-color: #085f91;
-    padding: 5px 15px;
-    border-radius: 5px;
-}
-
-/* Create Button */
-.create-button {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    margin-right: 10px;
-    padding: 5px 20px;
-    transition: color 0.3s, background-color 0.3s, border-color 0.3s, padding 0.3s;
-    border: 2px transparent;
-    border-radius: 5px;
-}
-
-.create-button:hover {
-    background-color: #085f91;
-    border-radius: 5px;
-}
-
-/* Right Header */
-.right-header {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
+    padding: 0.75rem 5px; /* Reduced top and bottom padding */
 }
 
 .right-icons {
     display: flex;
-    justify-content: flex-end;
-    flex-grow: 0.1;
     align-items: center;
 }
 
@@ -215,6 +149,19 @@ input[type="search"]:focus {
     outline: none;
 }
 
+/* Right Buttons */
+.right-btns {
+    display: flex;
+}
+
+.notification-button, .account-button {
+    margin-left: 10px; /* Add margin to create gap */
+}
+
+.notification-button:first-child {
+    margin-left: 0; /* Remove margin from the first button */
+}
+
 /* Notification, Account, and Create Board Buttons */
 .notification-button, .account-button, .create-board-button {
     background-color: transparent;
@@ -222,10 +169,9 @@ input[type="search"]:focus {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    margin-right: 10px;
-    margin-left: auto;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
+
 
 .notification-button:hover, .account-button, .create-board-button:hover {
     transform: scale(1.3);

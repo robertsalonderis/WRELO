@@ -33,10 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                 if ($row = mysqli_fetch_assoc($result)) {
                     // Verify the submitted password against the hashed password stored in the database
                     if (password_verify($parole, $row['parole'])) {
-                        // If password is correct, store the username in the session
+                        // If password is correct, store the user ID and username in the session
                         $_SESSION['lietotajvards'] = $lietotajvards;
-
-                        // Redirect the user to the index page
+                        $_SESSION['user_id'] = $row['lietotajs_id']; // Assuming the user ID field in your table is 'lietotajs_id'
+                        
+                        // Redirect the user to the main page
                         header("Location: ../main.php");
                         exit(); // Ensure no further code is executed after redirection
                     } else {
@@ -82,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup'])) {
             // Execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
                 // Redirect the user to the login page after successful registration
-                header("Location: ../main.php");
+                header("Location: login.php");
                 exit(); // Ensure no further code is executed after redirection
             } else {
                 // Store an error message if there was a problem executing the statement
@@ -101,8 +102,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <link rel="stylesheet" href="../login-style.css" />
-    <title>Sign-in / Create Account</title>
+    <link rel="stylesheet" href="login-style.css" />
+    <title>Pieslēgties / Reģistrēties</title>
 </head>
 <body>
     <div class="container" id="container">
@@ -126,10 +127,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup'])) {
                 <?php if (!empty($login_error)): ?>
                     <p class="error"><?php echo $login_error; ?></p>
                 <?php endif; ?>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                </div>
-                <h5>VAI</h5>
                 <input type="text" name="lietotajvards" placeholder="Lietotājvārds" required />
                 <input type="password" name="parole" placeholder="Parole" required />
                 <button type="submit" name="login">Pieslēgties</button>

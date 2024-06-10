@@ -1,9 +1,22 @@
+<?php
+// main.php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header('Location: Login/login.php');
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
     <title>WRELO</title>
     <style>
@@ -119,6 +132,37 @@
         .edit-card-button:hover {
             background-color: #005f91;
         }
+        /* Add Workspace Button Styles */
+        .create-workspace-button {
+            background-color: #0079bf;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .create-workspace-button:hover {
+            background-color: #005f91;
+        }
+        .workspace {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .delete-button {
+            background-color: transparent;
+            color: red;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: color 0.3s;
+        }
+        .delete-button:hover {
+            color: darkred;
+        }
     </style>
 </head>
 <body>
@@ -136,19 +180,20 @@
             </div>
             <button id="starred-button" class="header-button">Starred ˅</button>
         </div>
-        <div class="right-header"></div>
         <div class="right-icons">
-            <a href="Login/login.php" class="login-button">Log Out</a>
+            <a href="Login/logout.php" class="login-button">Log Out</a>
             <form id="search-form">
                 <button type="submit">Search</button>
                 <input type="search" placeholder="Search..." />
             </form>
-            <button class="notification-button"><i class="fa fa-bell"></i></button>
-            <a href="account.php">
-                <button class="account-button">
+            <div class="right-btns">
+                <button class="notification-button"><i class="fa fa-bell"></i></button>
+                <a href="account.php">
+                    <button class="account-button">
                     <i class="fa fa-user-circle-o"></i>
-                </button>
-            </a>
+                    </button>
+                </a>
+            </div>
         </div>
     </header>
     <div class="page">
@@ -180,17 +225,8 @@
                 <div class="h1-Wv">
                     <p><b>Workspace views</b></p>
                 </div>
-                <a href="navigation/table.html" class="section-link">
-                    <section class="section section-buttons">
-                        <button class="table-button">
-                            <i class="fa fa-th-list" style="font-size: 16px;"></i>
-                            <p>Table</p>
-                        </button>
-                    </section>
-                </a>
                 <a href="navigation/calendar.html" class="section-link">
-                    <section class="section section-buttons">
-                        <button class="calendar-button">
+                    <section class="section">
                             <i class="fa fa-calendar"></i>
                             <p>Calendar</p>
                         </button>
@@ -198,10 +234,13 @@
                 </a>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <p><b>Your Boards</b></p>
-                <button class="create-board-button">
+                <p><b>Your Workspaces</b></p>
+                <button class="create-workspace-button">
                     <i class="fa fa-plus"></i>
                 </button>
+            </div>
+            <div id="workspaceList">
+                <!-- List of workspaces will be appended here -->
             </div>
         </aside>
         <main class="main-content">
@@ -229,11 +268,21 @@
             </section>
         </main>
     </div>
+    <!-- Modal for creating workspace -->
+    <div id="addWorkspaceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create Workspace</h2>
+            <label for="workspaceTitle">Workspace title <span class="required">*</span></label>
+            <input type="text" id="workspaceTitle" name="workspaceTitle" required>
+            <button id="createWorkspaceButton">Create Workspace</button>
+        </div>
+    </div>
     <!-- Modal for creating board -->
     <div id="addBoardModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Create board</h2>
+            <h2>Create Board</h2>
             <div class="background-selection">
                 <p>Background</p>
                 <div class="background-options">
@@ -267,9 +316,11 @@
             <!-- File Attachment Field -->
             <label for="cardFileAttachment">File Attachment</label>
             <input type="file" id="cardFileAttachment" name="cardFileAttachment">
+            <div id="fileAttachmentContainer"></div>
             <!-- Comments Field -->
             <label for="cardComments">Comments</label>
             <textarea id="cardComments" name="cardComments"></textarea>
+            <div id="commentsContainer"></div>
             <!-- Checklist Field -->
             <label for="cardChecklist">Checklist</label>
             <div id="checklistContainer">
@@ -280,8 +331,14 @@
                 </ul>
             </div>
             <button id="saveCardButton">Save</button>
+            <button id="editModeButton" style="display: none;">Edit</button>
         </div>
     </div>
+    <script>
+        const userId = <?php echo json_encode($user_id); ?>;
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
+
+

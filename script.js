@@ -4,18 +4,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeButton = document.querySelector(".close-button");
     const searchInput = document.querySelector("input[type='search']");
     const searchButton = document.querySelector("button[type='submit']");
-    const userId = 1; // Replace with the logged-in user ID
+
+    // Modal functionality for creating a workspace
+    const addWorkspaceModal = document.getElementById("addWorkspaceModal");
+    const createWorkspaceButton = document.getElementById("createWorkspaceButton");
+    const createWorkspaceButtons = document.querySelectorAll(".create-workspace-button");
+    const workspaceList = document.getElementById("workspaceList");
+    let selectedWorkspaceId = null;
 
     // Modal functionality for creating a board
     const addBoardModal = document.getElementById("addBoardModal");
-    const createBoardButtons = document.querySelectorAll(".create-board-button");
-    const addBoardCloseButton = document.getElementsByClassName("close")[0];
+    const addBoardCloseButton = document.getElementsByClassName("close")[1];
     const createBoardButton = document.getElementById("createBoardButton");
     let selectedBgColor = "";
 
     // Modal functionality for editing a card
     const editCardModal = document.getElementById("editCardModal");
-    const editCardCloseButton = document.getElementsByClassName("close")[1];
+    const editCardCloseButton = document.getElementsByClassName("close")[2];
+    const editModeButton = document.getElementById("editModeButton");
+    const saveCardButton = document.getElementById("saveCardButton");
     let editingCardElement = null; // To keep track of the card being edited
 
     // Toggle side panel visibility
@@ -35,17 +42,24 @@ document.addEventListener("DOMContentLoaded", function () {
         searchInput.classList.toggle("expanded");
     });
 
-    createBoardButtons.forEach(button => {
+    createWorkspaceButtons.forEach(button => {
         button.onclick = function() {
-            addBoardModal.style.display = "block";
+            addWorkspaceModal.style.display = "block";
         }
     });
+
+    addWorkspaceModal.querySelector('.close').onclick = function() {
+        addWorkspaceModal.style.display = "none";
+    }
 
     addBoardCloseButton.onclick = function() {
         addBoardModal.style.display = "none";
     }
 
     window.onclick = function(event) {
+        if (event.target == addWorkspaceModal) {
+            addWorkspaceModal.style.display = "none";
+        }
         if (event.target == addBoardModal) {
             addBoardModal.style.display = "none";
         }
@@ -62,6 +76,86 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    createWorkspaceButton.onclick = function() {
+        const workspaceTitle = document.getElementById("workspaceTitle").value.trim();
+        if (!workspaceTitle) {
+            alert("Workspace title is required");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('lietotajs_id', userId);
+        formData.append('nosaukums', workspaceTitle);
+
+        fetch('admin/izveidot_darbtelpu.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                const newWorkspace = document.createElement("div");
+                newWorkspace.className = "workspace";
+                newWorkspace.textContent = workspaceTitle;
+                newWorkspace.dataset.workspaceId = data.darbtelpa_id;
+                newWorkspace.onclick = function() {
+                    selectWorkspace(data.darbtelpa_id, workspaceTitle);
+                };
+
+                // Create the "Add Board" button immediately
+                const addBoardButton = document.createElement("button");
+                addBoardButton.className = "create-board-button";
+                addBoardButton.innerHTML = '<i class="fa fa-plus"></i>';
+                addBoardButton.onclick = function() {
+                    addBoardModal.style.display = "block";
+                };
+                newWorkspace.appendChild(addBoardButton);
+
+                workspaceList.appendChild(newWorkspace);
+                addWorkspaceModal.style.display = "none";
+                document.getElementById("workspaceTitle").value = "";
+            } else {
+                alert('Error creating workspace: ' + data.message);
+            }
+        });
+    }
+
+    function selectWorkspace(workspaceId, workspaceTitle) {
+        selectedWorkspaceId = workspaceId;
+        document.querySelector(".planning-section h2").textContent = workspaceTitle;
+        document.querySelector(".board-container").innerHTML = ""; // Clear existing boards
+
+        // Fetch and display boards for the selected workspace
+        fetch(`admin/datu_atrasana.php?darbtelpa_id=${workspaceId}`)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(board => {
+                    const boardContainer = document.querySelector(".board-container");
+                    const newBoard = document.createElement("div");
+                    newBoard.className = "board";
+                    newBoard.style.backgroundColor = board.bg_krasa;
+                    newBoard.innerHTML = `<h3>${board.nosaukums}</h3><div class="tasks"></div><div class="add-card" data-board-id="${board.deli_id}">+ Add a card</div>`;
+                    newBoard.dataset.workspaceId = workspaceId;
+
+                    board.cards.forEach(card => {
+                        const task = document.createElement("div");
+                        task.className = "task";
+                        task.dataset.cardId = card.kartis_id;
+                        task.dataset.boardId = board.deli_id;
+                        task.innerHTML = `
+                            <p class="task-title">${card.apraksts}</p>
+                            <button class="edit-card-button">Edit</button>`;
+                        newBoard.querySelector('.tasks').appendChild(task);
+                    });
+
+                    boardContainer.appendChild(newBoard);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching boards:', error);
+            });
+    }
+
     createBoardButton.onclick = function() {
         const boardTitle = document.getElementById("boardTitle").value.trim();
         if (!boardTitle) {
@@ -69,32 +163,33 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const boardData = new FormData();
-        boardData.append('lietotajs_id', userId);
-        boardData.append('nosaukums', boardTitle);
-        boardData.append('bg_krasa', selectedBgColor);
+        const formData = new FormData();
+        formData.append('darbtelpa_id', selectedWorkspaceId);
+        formData.append('nosaukums', boardTitle);
+        formData.append('bg_krasa', selectedBgColor);
 
-        fetch('deli.php', {
+        fetch('admin/izveidot_deli.php', {
             method: 'POST',
-            body: boardData
+            body: formData
         })
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                const boardContainer = document.querySelector(".planning-section .board-container");
+                const boardContainer = document.querySelector(".board-container");
                 const newBoard = document.createElement("div");
                 newBoard.className = "board";
                 newBoard.style.backgroundColor = selectedBgColor;
-                newBoard.innerHTML = `<h3>${boardTitle}</h3><div class="tasks"></div><div class="add-card" data-board-id="${data.board_id}">+ Add a card</div>`;
-                
+                newBoard.innerHTML = `<h3>${boardTitle}</h3><div class="tasks"></div><div class="add-card" data-board-id="${data.deli_id}">+ Add a card</div>`;
+                newBoard.dataset.workspaceId = selectedWorkspaceId;
+
                 boardContainer.appendChild(newBoard);
+                addBoardModal.style.display = "none";
+                document.getElementById("boardTitle").value = "";
+                document.querySelectorAll(".bg-option").forEach(opt => opt.classList.remove("selected"));
+                selectedBgColor = "";
             } else {
                 alert('Error creating board: ' + data.message);
             }
-            addBoardModal.style.display = "none";
-            document.getElementById("boardTitle").value = "";
-            document.querySelectorAll(".bg-option").forEach(opt => opt.classList.remove("selected"));
-            selectedBgColor = "";
         });
     }
 
@@ -108,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 cardData.append('apraksts', taskTitle);
                 cardData.append('krasu_etikete', '');
 
-                fetch('kartis.php', {
+                fetch('admin/izveidot_karti.php', {
                     method: 'POST',
                     body: cardData
                 })
@@ -117,7 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (data.status === 'success') {
                         const task = document.createElement("div");
                         task.className = "task";
-                        task.dataset.cardId = data.card_id;
+                        task.dataset.cardId = data.kartis_id;
                         task.dataset.boardId = boardId;
                         task.innerHTML = `
                             <p class="task-title">${taskTitle}</p>
@@ -130,21 +225,62 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
+        // Open the non-editable card modal when a card is clicked
+        if (event.target.classList.contains('task') && !event.target.classList.contains('edit-card-button')) {
+            editCardModal.style.display = "block";
+            editingCardElement = event.target;
+            const cardDescription = editingCardElement.querySelector('.task-title').textContent;
+            document.getElementById('cardDescription').value = cardDescription; // Populate description
+            document.getElementById('fileAttachmentContainer').innerHTML = editingCardElement.querySelector('.task-file-attachment').textContent ? `<p>Attachment: ${editingCardElement.querySelector('.task-file-attachment').textContent}</p>` : ''; // Populate file attachment
+            document.getElementById('commentsContainer').innerHTML = editingCardElement.querySelector('.task-comments').textContent ? `<p>Comments: ${editingCardElement.querySelector('.task-comments').textContent}</p>` : ''; // Populate comments
+            document.getElementById('checklistItems').innerHTML = editingCardElement.querySelector('.task-checklist').innerHTML; // Populate checklist
+            // Make fields read-only
+            document.getElementById('cardDescription').readOnly = true;
+            document.querySelectorAll('.color-option').forEach(option => option.style.pointerEvents = 'none');
+            document.getElementById('cardFileAttachment').style.display = 'none';
+            document.getElementById('cardComments').style.display = 'none';
+            document.getElementById('addChecklistItem').style.display = 'none';
+            document.querySelectorAll('#checklistItems li').forEach(item => item.style.pointerEvents = 'none');
+            editModeButton.style.display = 'block';
+            saveCardButton.style.display = 'none';
+        }
+
         // Open the edit card modal when an edit button is clicked
         if (event.target.classList.contains('edit-card-button')) {
             editCardModal.style.display = "block";
-            // Prepopulate the modal fields with existing card data if necessary
             editingCardElement = event.target.closest('.task');
-            const cardTitle = editingCardElement.querySelector('.task-title').textContent;
-            document.getElementById('cardDescription').value = cardTitle; // Example, you can add more fields as needed
-            // Reset color options
-            document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+            const cardDescription = editingCardElement.querySelector('.task-title').textContent;
+            document.getElementById('cardDescription').value = cardDescription; // Populate description
+            document.getElementById('fileAttachmentContainer').innerHTML = editingCardElement.querySelector('.task-file-attachment').textContent ? `<p>Attachment: ${editingCardElement.querySelector('.task-file-attachment').textContent}</p>` : ''; // Populate file attachment
+            document.getElementById('commentsContainer').innerHTML = editingCardElement.querySelector('.task-comments').textContent ? `<p>Comments: ${editingCardElement.querySelector('.task-comments').textContent}</p>` : ''; // Populate comments
+            document.getElementById('checklistItems').innerHTML = editingCardElement.querySelector('.task-checklist').innerHTML; // Populate checklist
+            // Make fields editable
+            document.getElementById('cardDescription').readOnly = false;
+            document.querySelectorAll('.color-option').forEach(option => option.style.pointerEvents = 'auto');
+            document.getElementById('cardFileAttachment').style.display = 'block';
+            document.getElementById('cardComments').style.display = 'block';
+            document.getElementById('addChecklistItem').style.display = 'block';
+            document.querySelectorAll('#checklistItems li').forEach(item => item.style.pointerEvents = 'auto');
+            editModeButton.style.display = 'none';
+            saveCardButton.style.display = 'block';
         }
     });
 
     editCardCloseButton.onclick = function() {
         editCardModal.style.display = "none";
     }
+
+    editModeButton.onclick = function() {
+        // Switch to edit mode
+        document.getElementById('cardDescription').readOnly = false;
+        document.querySelectorAll('.color-option').forEach(option => option.style.pointerEvents = 'auto');
+        document.getElementById('cardFileAttachment').style.display = 'block';
+        document.getElementById('cardComments').style.display = 'block';
+        document.getElementById('addChecklistItem').style.display = 'block';
+        document.querySelectorAll('#checklistItems li').forEach(item => item.style.pointerEvents = 'auto');
+        editModeButton.style.display = 'none';
+        saveCardButton.style.display = 'block';
+    };
 
     // JavaScript for handling the edit card modal interactions
     var colorOptions = document.querySelectorAll('.color-option');
@@ -165,29 +301,44 @@ document.addEventListener("DOMContentLoaded", function () {
         var newItemText = document.getElementById('newChecklistItem').value;
         if (newItemText) {
             var newItem = document.createElement('li');
-            newItem.textContent = newItemText;
+            newItem.innerHTML = `<span>${newItemText}</span><input type="checkbox" class="checklist-item-checkbox">`;
             checklistContainer.appendChild(newItem);
             document.getElementById('newChecklistItem').value = '';
         }
     });
 
-    document.getElementById('saveCardButton').addEventListener('click', function() {
+    checklistContainer.addEventListener('change', function(event) {
+        if (event.target.classList.contains('checklist-item-checkbox')) {
+            if (event.target.checked) {
+                event.target.closest('li').classList.add('completed');
+            } else {
+                event.target.closest('li').classList.remove('completed');
+            }
+        }
+    });
+
+    saveCardButton.addEventListener('click', function() {
         var description = document.getElementById('cardDescription').value;
         var cardId = editingCardElement ? editingCardElement.dataset.cardId : null;
         var boardId = editingCardElement ? editingCardElement.dataset.boardId : null;
+        var colorLabel = selectedColor;
+        var comments = document.getElementById('cardComments').value;
+        var fileAttachment = document.getElementById('cardFileAttachment').files[0];
         var checklistItems = [];
         checklistContainer.querySelectorAll('li').forEach(function(item) {
-            checklistItems.push({ text: item.textContent, is_checked: false });
+            checklistItems.push({ text: item.querySelector('span').textContent, is_checked: item.querySelector('input[type="checkbox"]').checked });
         });
-
-        // Save card details
+    
         var cardData = new FormData();
-        cardData.append('apraksts', description);
-        cardData.append('krasu_etikete', selectedColor);
         cardData.append('kartis_id', cardId);
         cardData.append('deli_id', boardId);
-
-        fetch('kartis.php', {
+        cardData.append('apraksts', description);
+        cardData.append('krasu_etikete', colorLabel);
+        cardData.append('komentari', comments);
+        cardData.append('faila_pievienojums', fileAttachment);
+        cardData.append('checklist', JSON.stringify(checklistItems));
+    
+        fetch('admin/atjaunināt_karti.php', {
             method: 'POST',
             body: cardData
         })
@@ -197,35 +348,53 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Update the card element on the frontend
                 if (editingCardElement) {
                     editingCardElement.querySelector('.task-title').textContent = description;
-                    editingCardElement.style.borderTop = `4px solid ${selectedColor}`;
+                    editingCardElement.style.borderTop = `4px solid ${colorLabel}`;
+                    editingCardElement.dataset.colorLabel = colorLabel;
+                    editingCardElement.dataset.comments = comments;
+                    editingCardElement.dataset.checklist = JSON.stringify(checklistItems);
+                    if (fileAttachment) {
+                        editingCardElement.dataset.fileAttachment = fileAttachment.name;
+                    }
                 }
+                editCardModal.style.display = "none";
             } else {
                 alert('Error saving card details: ' + data.message);
             }
         });
+    });
+    
 
-        // Save checklist items
-        checklistItems.forEach(item => {
-            var checklistData = new FormData();
-            checklistData.append('kartis_id', cardId);
-            checklistData.append('sar_teksts', item.text);
-            checklistData.append('ir_atzimets', item.is_checked ? 1 : 0);
+// Fetch workspaces and display them
+function fetchWorkspaces() {
+    fetch(`admin/datu_atrasana.php?lietotajs_id=${userId}`)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(darbtelpa => {
+                const newWorkspace = document.createElement("div");
+                newWorkspace.className = "workspace";
+                newWorkspace.textContent = darbtelpa.nosaukums;
+                newWorkspace.dataset.workspaceId = darbtelpa.darbtelpa_id;
+                newWorkspace.onclick = function() {
+                    selectWorkspace(darbtelpa.darbtelpa_id, darbtelpa.nosaukums);
+                };
 
-            fetch('saraksts.php', {
-                method: 'POST',
-                body: checklistData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status !== 'success') {
-                    alert('Error saving checklist items: ' + data.message);
-                }
+                // Create the "Add Board" button immediately
+                const addBoardButton = document.createElement("button");
+                addBoardButton.className = "create-board-button";
+                addBoardButton.innerHTML = '<i class="fa fa-plus"></i>';
+                addBoardButton.onclick = function() {
+                    addBoardModal.style.display = "block";
+                };
+                newWorkspace.appendChild(addBoardButton);
+
+                workspaceList.appendChild(newWorkspace);
             });
         });
+}
 
-        // Close the modal after saving
-        editCardModal.style.display = "none";
-    });
+// Initial fetch of workspaces when the page loads
+fetchWorkspaces();
+
 });
 
 

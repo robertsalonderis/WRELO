@@ -1,35 +1,12 @@
 <?php
-    $servera_vards = "localhost";
-    $lietotajvards = "grobina1_alonderis";
-    $parole = "6!UdKnKF3";
-    $db_nosaukums = "grobina1_alonderis";
+$servera_vards = "localhost";
+$lietotajvards = "grobina1_alonderis";
+$parole = "6!UdKnKF3";
+$db_nosaukums = "grobina1_alonderis";
 
-    $savienojums = mysqli_connect($servera_vards, $lietotajvards, $parole, $db_nosaukums);
-
-    /*
-    if(!$savienojums){
-        die("Pieslēgties neizdevās: ".mysqli_connect_error());
-    }else{
-        echo "Savienojums izveidots!";
-    }
-    */
-
-/*$servera_vards = "localhost";
-$lietotajvards = "root"; // The default username in XAMPP
-$parole = ""; // The default password in XAMPP
-$db_nosaukums = "wrelo_db"; // Replace with the name of your database
-
-Create a connection
 $savienojums = mysqli_connect($servera_vards, $lietotajvards, $parole, $db_nosaukums);
-*/
-//Check the connection
-// if ($savienojums->connect_error) {
-//  die("Connection failed: " . $savienojums->connect_error);
-// } else {
-//   echo "Veiksmīgi";
-// }
 
-// Perform database operations here
-
-// Close the connection
+if (!$savienojums) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 ?>
