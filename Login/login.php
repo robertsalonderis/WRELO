@@ -106,6 +106,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup'])) {
     <title>Pieslēgties / Reģistrēties</title>
 </head>
 <body>
+    <a href="../index.php" class="back-home-button">
+        <i class="fas fa-home"></i> Atpakaļ uz sākumlapu
+    </a>
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form action="login.php" method="post">

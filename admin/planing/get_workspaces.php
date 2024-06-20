@@ -19,3 +19,5 @@ echo json_encode($workspaces);
 $stmt->close();
 $savienojums->close();
 ?>
+
+

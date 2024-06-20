@@ -105,6 +105,7 @@
     border: 1px solid currentColor;
     border-radius: 5px;
     background-color: #153851;
+    position: relative;
 }
 
 input[type="search"] {
@@ -172,8 +173,7 @@ input[type="search"]:focus {
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-
-.notification-button:hover, .account-button, .create-board-button:hover {
+.notification-button:hover, .account-button:hover, .create-board-button:hover {
     transform: scale(1.3);
     cursor: pointer;
 }
@@ -221,7 +221,7 @@ input[type="search"]:focus {
 }
 
 .create-board-button:hover i.fa-plus::after {
-    content: "Add board";
+    content: "Add list";
     display: block;
     background-color: #012941;
     color: #fff;
@@ -466,6 +466,27 @@ ul li {
     margin: 0;
 }
 
+/* Styles for search results */
+#search-results {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 1000;
+}
+
+.search-result-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background-color: #f1f1f1;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     /* Small screens (e.g., smartphones) */
@@ -478,3 +499,4 @@ ul li {
 @media (min-width: 1025px) {
     /* Large screens (e.g., desktops and laptops) */
 }
+

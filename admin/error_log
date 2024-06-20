@@ -84,3 +84,11 @@ Stack trace:
 [22-May-2024 09:13:21 Europe/Riga] PHP Notice:  session_start(): A session had already been started - ignoring in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 58
 [22-May-2024 09:13:30 Europe/Riga] PHP Notice:  session_start(): A session had already been started - ignoring in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 58
 [22-May-2024 09:14:20 Europe/Riga] PHP Notice:  session_start(): A session had already been started - ignoring in /home2/grobina1/public_html/4pt/alonderis/WRELO-master/admin/login.php on line 58
+[10-Jun-2024 12:09:38 Europe/Riga] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home2/grobina1/public_html/4pt/alonderis/WRELO/admin/datu_atrasana.php:14
+Stack trace:
+#0 {main}
+  thrown in /home2/grobina1/public_html/4pt/alonderis/WRELO/admin/datu_atrasana.php on line 14
+[10-Jun-2024 12:09:43 Europe/Riga] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home2/grobina1/public_html/4pt/alonderis/WRELO/admin/datu_atrasana.php:14
+Stack trace:
+#0 {main}
+  thrown in /home2/grobina1/public_html/4pt/alonderis/WRELO/admin/datu_atrasana.php on line 14

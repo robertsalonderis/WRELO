@@ -1,6 +1,37 @@
+<?php
+session_start();
+require 'Connect_db.php';
+
+// Ensure user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+
+// Fetch user information from database
+$query = "SELECT * FROM wrelo_lietotaji WHERE lietotajs_id = ?";
+$stmt = $savienojums->prepare($query);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 1) {
+    $user = $result->fetch_assoc();
+} else {
+    // Handle case where user is not found
+    echo "User not found.";
+    exit();
+}
+
+$stmt->close();
+$savienojums->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -69,8 +100,8 @@
 }
 
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <header class="trello-header">
       <div class="left-header">
         <div class="logo">
@@ -87,16 +118,21 @@
       </div>
       
       <div class="right-icons">
-        <a href="Login/login.html" class="login-button">Log In</a>
-        <form id="search-form">
-          <button type="submit">Search</button>
-          <input type="search" placeholder="Search..." />
-        </form>
-        <button class="notification-button"><i class="fa fa-bell"></i></button>
-        <button class="account-button">
-          <i class="fa fa-user-circle-o"></i>
-        </button>
-      </div>
+            <a href="Login/logout.php" class="login-button">Log Out</a> <!-- Atslēgties -->
+            <form id="search-form">
+                <button type="submit">Search</button> <!-- Meklēt -->
+                <input type="search" placeholder="Search..." /> <!-- Meklēšanas laukums -->
+            </form>
+            <div class="right-btns">
+                <button class="notification-button"><i class="fa fa-bell"></i></button> <!-- Paziņojumu poga -->
+                <a href="account.php">
+                    <button class="account-button">
+                    <i class="fa fa-user-circle-o"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
     </header>
 
     <div class="page">
@@ -168,33 +204,28 @@
         </div>
       </aside>
 
-
-
       <main class="main-profile">
-  <div class="p-cont">
-    <h1>Profile</h1>
-    <form id="profile-form">
-      <label for="name">NAME</label>
-      <input type="text" id="name" placeholder="Your Name">
+        <div class="p-cont">
+            <h1>Profile</h1>
+            <form id="profile-form" action="update_account.php" method="POST">
+                <label for="liet_vards">NAME</label>
+                <input type="text" id="liet_vards" name="liet_vards" value="<?php echo htmlspecialchars($user['liet_vards']); ?>" placeholder="Your Name">
 
-      <label for="username">SURNAME</label>
-      <input type="text" id="name" placeholder="Your Surname">
+                <label for="liet_uzvards">SURNAME</label>
+                <input type="text" id="liet_uzvards" name="liet_uzvards" value="<?php echo htmlspecialchars($user['liet_uzvards']); ?>" placeholder="Your Surname">
 
-      <label for="email">EMAIL</label>
-      <input type="email" id="email" placeholder="Your Email">
+                <label for="liet_epasts">EMAIL</label>
+                <input type="email" id="liet_epasts" name="liet_epasts" value="<?php echo htmlspecialchars($user['liet_epasts']); ?>" placeholder="Your Email">
 
-      <label for="location">USERNAME</label>
-      <input type="text" id="username" placeholder="Your Username">
+                <label for="lietotajvards">USERNAME</label>
+                <input type="text" id="lietotajvards" name="lietotajvards" value="<?php echo htmlspecialchars($user['lietotajvards']); ?>" placeholder="Your Username">
 
-      <label for="website">WEBSITE</label>
-      <input type="url" id="website" placeholder="Your Website">
+            </form>
+        </div>
+      </main>
 
-      <label for="bio">BIO</label>
-      <textarea id="bio" placeholder="Your Bio" rows="4"></textarea>
-    </form>
-  </div>
-</main>
-
-  </body>
+    </div>
   <script src="script.js"></script>
+</body>
 </html>
+

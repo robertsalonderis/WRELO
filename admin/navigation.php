@@ -12,7 +12,6 @@
     <nav class="navbar">
         <a href="index.php" class="active"><i class="fas fa-tachometer-alt"></i> Sākums</a>
         <a href="lietotaji.php"><i class="fas fa-users"></i> Lietotāji</a>
-        <a href="zurnals.php"><i class="fas fa-cogs"></i> Žurnālfaili</a>
         <a href="../" target="_blank"><i class="fas fa-sign-out-alt"></i> Uz klientu lapu </a>
         <form action="logout.php" method="post" style="display: inline;">
             <button type="submit" class="logout-button"><i class="fas fa-arrow-alt-circle-left"></i> Izlogoties</button>

@@ -14,7 +14,7 @@ while ($row = $result->fetch_assoc()) {
     $board_id = $row['id'];
     $row['cards'] = [];
 
-    $card_sql = "SELECT id, name FROM cards WHERE board_id = ?";
+    $card_sql = "SELECT id, name, description FROM cards WHERE board_id = ?";
     $card_stmt = $savienojums->prepare($card_sql);
     $card_stmt->bind_param('i', $board_id);
     $card_stmt->execute();
@@ -33,3 +33,4 @@ echo json_encode($boards);
 $stmt->close();
 $savienojums->close();
 ?>
+

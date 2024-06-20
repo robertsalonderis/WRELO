@@ -4,7 +4,7 @@ require('../../Connect_db.php');
 if (isset($_POST['lietotajvards']) && isset($_POST['parole']) && isset($_POST['loma'])) {
     $lietotajvards = $_POST['lietotajvards'];
 
-    // Pārbaude, vai lietotājvārds jau eksistē
+    // Check if the username already exists
     $check_username_SQL = "SELECT lietotajvards FROM wrelo_lietotaji WHERE lietotajvards = '$lietotajvards'";
     $check_username_result = mysqli_query($savienojums, $check_username_SQL);
 
@@ -13,10 +13,10 @@ if (isset($_POST['lietotajvards']) && isset($_POST['parole']) && isset($_POST['l
     }
 
     if (mysqli_num_rows($check_username_result) > 0) {
-        // Lietotājvārds jau eksistē, veiciet atbilstošas darbības (piemēram, izvadiet kļūdas ziņojumu)
+        // Username already exists
         echo "Lietotājvārds jau eksistē!";
     } else {
-        // Lietotājvārds ir unikāls, veiciet ievadīt
+        // Username is unique, proceed with insertion
         $vards = mysqli_real_escape_string($savienojums, $_POST['vards']);
         $uzvards = mysqli_real_escape_string($savienojums, $_POST['uzvards']);
         $epasts = mysqli_real_escape_string($savienojums, $_POST['epasts']);
@@ -35,7 +35,6 @@ if (isset($_POST['lietotajvards']) && isset($_POST['parole']) && isset($_POST['l
         echo "Lietotājs pievienots!";
     }
 }
-
-
 ?>
+
 

@@ -18,6 +18,33 @@ body{
     height: 100vh;
 }
 
+    .back-home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background-color: #6c5ce7;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 16px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+    }
+
+    .back-home-button:hover {
+        background-color: #5a4cb8;
+    }
+
+    .back-home-button i {
+        font-size: 18px;
+    }
+
+
+
 .home-button{
     margin: 20px;
     position: absolute; 
